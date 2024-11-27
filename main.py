@@ -39,7 +39,6 @@ if __name__ == "__main__":
         if current_time.hour == 13 and current_time.minute == 25:
             flag = False
         # 呼叫背景執行的函數
-        
         for index, stock_data in enumerate(stock_codes):
             if index % 100 == 0 or index ==length-1:
                 url += f"{stock_data['type']}_{stock_data['stock_code']}.tw"
@@ -53,21 +52,22 @@ if __name__ == "__main__":
         previous_important_stock_codes = important_stock_codes.copy()
         # Update important_stock_codes with unique stock codes where KPattern == 1
         important_stock_codes.clear()  # 清空集合
-        important_stock_codes.update(stock_df[stock_df['KPattern'] == 1].index, stock_df[stock_df['KPattern'] == 1]['name'])
+        # 使用 zip 将 index 和 name 配对
+        important_stock_codes = set(zip(stock_df[stock_df['KPattern'] == 1].index, 
+                                        stock_df[stock_df['KPattern'] == 1]['name']))
         #important_stock_codes_list = list(important_stock_codes)
-
         if important_stock_codes != previous_important_stock_codes:
-            print(important_stock_codes)
-            added_elements = important_stock_codes - previous_important_stock_codes
             # 創建要寫入 JSON 的字典
-            data_to_save = {'隔日沖名單': important_stock_codes}
+            # 将 set 转换为字典
+            data_to_save = {'隔日沖名單': {code: name for code, name in important_stock_codes}}
 
-            # # 指定檔案名稱
-            # file_name = 'D:\db_backups\overnight_stockcode_online\important_stock_codes.json'
 
-            # # 將字典寫入 JSON 檔案
-            # with open(file_name, 'w', encoding='utf-8') as json_file:
-            #     json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
+            # 指定檔案名稱
+            file_name = 'D:\db_backups\overnight_stockcode_online\important_stock_codes.json'
+
+            # 將字典寫入 JSON 檔案
+            with open(file_name, 'w', encoding='utf-8') as json_file:
+                json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
 
             # print(f"資料已儲存到 {file_name}")
             #push_to_github()

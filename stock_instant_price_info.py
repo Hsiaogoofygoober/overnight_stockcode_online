@@ -71,5 +71,5 @@ def instant_stock_info(url,stock_df):
             v = 0
         kpattern = calculate_kpattern(o,h,l,c,y,v)
         # 直接使用 .loc 方法根據索引更新資料
-        stock_df.loc[stock_code] = [o, h, l, c, kpattern]
+        stock_df.loc[stock_code] = [stock_df.loc[stock_code, 'name'], o, h, l, c, kpattern]
 
