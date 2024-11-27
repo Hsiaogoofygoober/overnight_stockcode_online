@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>隔日沖名單</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 引用外部CSS文件 -->
+    <script src="script.js" defer></script> <!-- 引用外部JS文件 -->
 </head>
 <body>
-    <h1>隔日沖名單</h1>
-    <ul id="stock-list"></ul>
-    <script src="script.js"></script>
+
+    <div class="container">
+        <header>
+            <h1>隔日沖名單</h1>
+            <p>以下是目前的股票名單：</p>
+        </header>
+
+        <section class="stock-list-container">
+            <ul id="stock-list">
+                <!-- 动态加载的股票列表 -->
+            </ul>
+        </section>
+
+        <footer>
+            <p>資料來源：GitHub Raw JSON</p>
+        </footer>
+    </div>
+
 </body>
 </html>
