@@ -19,7 +19,7 @@ def push_to_github():
     print("已将更新推送到 GitHub。")
     
 # 建立一個 DataFrame，用來存儲最新的股價資訊
-stock_df = pd.DataFrame(columns=['stock_code','o','h','l','c','KPattern'])
+stock_df = pd.DataFrame(columns=['stock_code','name','o','h','l','c','KPattern'])
 stock_df.set_index('stock_code', inplace=True)
 
 if __name__ == "__main__":
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     stock_codes = get_stock_code_from_csv()
     # 將 '3363' 股票代號的數值更新到 stock_df
     for stock_data in stock_codes:
-        stock_df.loc[stock_data['stock_code']] = [0., 0., 0., 0., 0]   
+        stock_df.loc[stock_data['stock_code']] = [stock_data['name'], 0., 0., 0., 0., 0]   
     length = len(stock_codes)
     
     while (flag):
@@ -53,23 +53,24 @@ if __name__ == "__main__":
         previous_important_stock_codes = important_stock_codes.copy()
         # Update important_stock_codes with unique stock codes where KPattern == 1
         important_stock_codes.clear()  # 清空集合
-        important_stock_codes.update(stock_df[stock_df['KPattern'] == 1].index)
-        important_stock_codes_list = list(important_stock_codes)
+        important_stock_codes.update(stock_df[stock_df['KPattern'] == 1].index, stock_df[stock_df['KPattern'] == 1]['name'])
+        #important_stock_codes_list = list(important_stock_codes)
 
         if important_stock_codes != previous_important_stock_codes:
+            print(important_stock_codes)
             added_elements = important_stock_codes - previous_important_stock_codes
             # 創建要寫入 JSON 的字典
-            data_to_save = {'隔日沖名單': important_stock_codes_list}
+            data_to_save = {'隔日沖名單': important_stock_codes}
 
-            # 指定檔案名稱
-            file_name = 'D:\db_backups\overnight_stockcode_online\important_stock_codes.json'
+            # # 指定檔案名稱
+            # file_name = 'D:\db_backups\overnight_stockcode_online\important_stock_codes.json'
 
-            # 將字典寫入 JSON 檔案
-            with open(file_name, 'w', encoding='utf-8') as json_file:
-                json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
+            # # 將字典寫入 JSON 檔案
+            # with open(file_name, 'w', encoding='utf-8') as json_file:
+            #     json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
 
-            print(f"資料已儲存到 {file_name}")
-            push_to_github()
+            # print(f"資料已儲存到 {file_name}")
+            #push_to_github()
         
         time.sleep(3)
 
