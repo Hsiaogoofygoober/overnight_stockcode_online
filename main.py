@@ -15,7 +15,7 @@ import os
 def push_to_github():
     os.system("git add important_stock_codes.json")
     os.system('git commit -m "Update important_stock_codes.json"')
-    os.system("git push origin master")
+    os.system("git push origin gh-pages")
     print("已将更新推送到 GitHub。")
     
 # 建立一個 DataFrame，用來存儲最新的股價資訊
@@ -60,7 +60,7 @@ if __name__ == "__main__":
             # 創建要寫入 JSON 的字典
             # 将 set 转换为字典
             data_to_save = {'隔日沖名單': {code: name for code, name in important_stock_codes}}
-
+            #data_to_save = {'隔日沖名單': {'1111' : 'name'}}
 
             # 指定檔案名稱
             file_name = 'D:\db_backups\overnight_stockcode_online\important_stock_codes.json'
@@ -68,9 +68,8 @@ if __name__ == "__main__":
             # 將字典寫入 JSON 檔案
             with open(file_name, 'w', encoding='utf-8') as json_file:
                 json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
-
-            # print(f"資料已儲存到 {file_name}")
-            #push_to_github()
+                
+            push_to_github()
         
         time.sleep(3)
 
