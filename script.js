@@ -1,5 +1,5 @@
 // GitHub Raw JSON 文件的 URL
-const jsonUrl = "https://raw.githubusercontent.com/Hsiaogoofygoober/overnight_stockcode_online/refs/heads/gh-pages/important_stock_codes.json";
+const jsonUrl = "https://raw.githubusercontent.com/Hsiaogoofygoober/overnight_stockcode_online/gh-pages/important_stock_codes.json?t=" + new Date().getTime();;
 
 // 动态获取 JSON 文件并更新页面内容
 async function fetchStockList() {
