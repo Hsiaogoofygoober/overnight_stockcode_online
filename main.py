@@ -78,37 +78,37 @@ if __name__ == "__main__":
         important_stock_codes = set(zip(stock_df[stock_df['KPattern'] == 1].index, 
                                         stock_df[stock_df['KPattern'] == 1]['name']))
         #important_stock_codes_list = list(important_stock_codes)
-        # if important_stock_codes != previous_important_stock_codes:
-        #     # 創建要寫入 JSON 的字典
-        #     # 将 set 转换为字典
-        #     data_to_save = {'隔日沖名單': {code: name for code, name in important_stock_codes}}
-        #     data_to_save = {'隔日沖名單': {'1111' : 'name'}}
-
-        #     # 指定檔案名稱
-        #     file_name = 'D:\db_backups\overnight_stockcode_online\important_stock_codes.json'
-
-        #     # 將字典寫入 JSON 檔案
-        #     with open(file_name, 'w', encoding='utf-8') as json_file:
-        #         json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
-                
-        #     push_to_github()
-        count += 1
-        if count == 1:
+        if important_stock_codes != previous_important_stock_codes:
             # 創建要寫入 JSON 的字典
             # 将 set 转换为字典
-            data_to_save = {'隔日沖名單': {'5555' : 'name'}}
+            data_to_save = {'隔日沖名單': {code: name for code, name in important_stock_codes}}
+
             # 生成新的 JSON 文件名（添加时间戳）
             timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             json_filename = f"D:\db_backups\overnight_stockcode_online\important_stock_codes_{timestamp}.json"
-            # 指定檔案名稱
-            #file_name = 'D:\db_backups\overnight_stockcode_online\important_stock_codes.json'
-            print(json_filename)
+
             # 將字典寫入 JSON 檔案
             with open(json_filename, 'w', encoding='utf-8') as json_file:
                 json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
-                
             remove_old_json_files(json_filename)    
             push_to_github(json_filename)
+        # count += 1
+        # if count == 1:
+        #     # 創建要寫入 JSON 的字典
+        #     # 将 set 转换为字典
+        #     data_to_save = {'隔日沖名單': {'5555' : 'name'}}
+        #     # 生成新的 JSON 文件名（添加时间戳）
+        #     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        #     json_filename = f"D:\db_backups\overnight_stockcode_online\important_stock_codes_{timestamp}.json"
+        #     # 指定檔案名稱
+        #     #file_name = 'D:\db_backups\overnight_stockcode_online\important_stock_codes.json'
+        #     print(json_filename)
+        #     # 將字典寫入 JSON 檔案
+        #     with open(json_filename, 'w', encoding='utf-8') as json_file:
+        #         json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
+                
+        #     remove_old_json_files(json_filename)    
+        #     push_to_github(json_filename)
         
         time.sleep(3)
 
