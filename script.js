@@ -1,7 +1,7 @@
 async function getLatestJsonFile() {
   const repoOwner = "Hsiaogoofygoober"; // 仓库拥有者
   const repoName = "overnight_stockcode_online"; // 仓库名称
-  const branch = "gh-pages"; // 分支名称
+  const branch = "master"; // 分支名称
 
   const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents?ref=${branch}`;
 
