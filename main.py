@@ -11,23 +11,37 @@ from linebot.v3.messaging import MessagingApi
 import json
 import os
 
+REPO_DIR = 'D:\db_backups\overnight_stockcode_online'
 # 提交并推送到 GitHub，同时刷新 CDN 缓存
-def push_to_github(json_filename):
-    # 伪修改 JSON 文件：重命名并恢复
-    os.system("rename important_stock_codes.json important_stock_codes.json.bak")  # 重命名为备份文件
-    os.system("rename important_stock_codes.json.bak important_stock_codes.json")  # 恢复原文件
-    
+def push_to_github(json_filename):    
     # 添加文件并提交到仓库
-    os.system(f"git add {json_filename}")
+    os.system(f"git add -A")
     os.system(f'git commit -m "Update {json_filename}"')  # 提交更改
     os.system("git push origin master")  # 推送到 gh-pages 分支
     
     print("已将更新推送到 GitHub，并刷新缓存。")
+    
+def remove_old_json_files(JSON_FILE):
+    print(JSON_FILE)
+    try:
+        # 取得倉庫目錄中所有 JSON 文件
+        files_in_repo = os.listdir(REPO_DIR)
+        json_files = [f for f in files_in_repo if f.endswith(".json") and os.path.join(REPO_DIR, f)!= JSON_FILE]
+        
+        # 刪除過時的 JSON 文件
+        for file in json_files:
+            file_path = os.path.join(REPO_DIR, file)
+            os.remove(file_path)
+            print(f"{file} 已刪除")
+    except Exception as e:
+        print(f"刪除過時文件時出現錯誤: {e}")
 
     
 # 建立一個 DataFrame，用來存儲最新的股價資訊
 stock_df = pd.DataFrame(columns=['stock_code','name','o','h','l','c','KPattern'])
 stock_df.set_index('stock_code', inplace=True)
+
+
 
 if __name__ == "__main__":
     important_stock_codes = set()
@@ -82,7 +96,7 @@ if __name__ == "__main__":
         if count == 1:
             # 創建要寫入 JSON 的字典
             # 将 set 转换为字典
-            data_to_save = {'隔日沖名單': {'2222' : 'name'}}
+            data_to_save = {'隔日沖名單': {'4444' : 'name'}}
             # 生成新的 JSON 文件名（添加时间戳）
             timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             json_filename = f"D:\db_backups\overnight_stockcode_online\important_stock_codes_{timestamp}.json"
@@ -93,6 +107,7 @@ if __name__ == "__main__":
             with open(json_filename, 'w', encoding='utf-8') as json_file:
                 json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
                 
+            remove_old_json_files(json_filename)    
             push_to_github(json_filename)
         
         time.sleep(3)
