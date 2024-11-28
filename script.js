@@ -1,4 +1,4 @@
-const jsonUrl = "https://raw.githubusercontent.com/Hsiaogoofygoober/overnight_stockcode_online/gh-pages/important_stock_codes.json?t=" + new Date().getTime();
+const jsonUrl = "https://raw.githubusercontent.com/Hsiaogoofygoober/overnight_stockcode_online/refs/heads/master/important_stock_codes.json?t=" + new Date().getTime();
 
 async function fetchStockList() {
     try {
