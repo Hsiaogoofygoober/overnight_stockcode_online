@@ -96,7 +96,7 @@ if __name__ == "__main__":
         if count == 1:
             # 創建要寫入 JSON 的字典
             # 将 set 转换为字典
-            data_to_save = {'隔日沖名單': {'4444' : 'name'}}
+            data_to_save = {'隔日沖名單': {'5555' : 'name'}}
             # 生成新的 JSON 文件名（添加时间戳）
             timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             json_filename = f"D:\db_backups\overnight_stockcode_online\important_stock_codes_{timestamp}.json"
