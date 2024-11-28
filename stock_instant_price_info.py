@@ -11,7 +11,7 @@ def calculate_kpattern(o,h,l,c,y,v):
     # else:
     #     upperShadow = h - o
     #     lowerShadow = c - l
-    #漲幅大於7% 上引線小於1%
+    #漲幅大於7%
     if (c > o) and (body > (h - l) * 0.6) and ((c-y) > y*0.065) and v > 1000:
         kpattern = 1
         
