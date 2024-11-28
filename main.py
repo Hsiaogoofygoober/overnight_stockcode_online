@@ -12,14 +12,14 @@ import json
 import os
 
 # 提交并推送到 GitHub，同时刷新 CDN 缓存
-def push_to_github():
+def push_to_github(json_filename):
     # 伪修改 JSON 文件：重命名并恢复
     os.system("rename important_stock_codes.json important_stock_codes.json.bak")  # 重命名为备份文件
     os.system("rename important_stock_codes.json.bak important_stock_codes.json")  # 恢复原文件
     
     # 添加文件并提交到仓库
-    os.system("git add important_stock_codes.json")
-    os.system('git commit -m "Update important_stock_codes.json (cache refresh)"')  # 提交更改
+    os.system(f"git add {json_filename}")
+    os.system(f'git commit -m "Update {json_filename}"')  # 提交更改
     os.system("git push origin master")  # 推送到 gh-pages 分支
     
     print("已将更新推送到 GitHub，并刷新缓存。")
@@ -88,12 +88,12 @@ if __name__ == "__main__":
             json_filename = f"D:\db_backups\overnight_stockcode_online\important_stock_codes_{timestamp}.json"
             # 指定檔案名稱
             #file_name = 'D:\db_backups\overnight_stockcode_online\important_stock_codes.json'
-
+            print(json_filename)
             # 將字典寫入 JSON 檔案
             with open(json_filename, 'w', encoding='utf-8') as json_file:
                 json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
                 
-            push_to_github()
+            push_to_github(json_filename)
         
         time.sleep(3)
 
