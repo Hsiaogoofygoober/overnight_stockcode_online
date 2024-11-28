@@ -15,7 +15,7 @@ import os
 def push_to_github():
     os.system("git add important_stock_codes.json")
     os.system('git commit -m "Update important_stock_codes.json"')
-    os.system("git push origin gh-pages")
+    os.system("git push origin master")
     print("已将更新推送到 GitHub。")
     
 # 建立一個 DataFrame，用來存儲最新的股價資訊
