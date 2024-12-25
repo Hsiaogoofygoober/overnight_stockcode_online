@@ -111,6 +111,7 @@ if __name__ == "__main__":
                     json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
                 remove_old_json_files(json_filename)    
                 push_to_github(json_filename)
+                print(timestamp)
             
             time.sleep(3)
 
