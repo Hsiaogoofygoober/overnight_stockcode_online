@@ -10,7 +10,7 @@ from linebot.models import TextSendMessage
 from linebot.v3.messaging import MessagingApi
 import json
 import os
-
+import random
 REPO_DIR = 'D:\db_backups\overnight_stockcode_online'
 # 提交并推送到 GitHub，同时刷新 CDN 缓存
 def push_to_github(json_filename):    
@@ -85,6 +85,7 @@ if __name__ == "__main__":
                     url += f"{stock_data['type']}_{stock_data['stock_code']}.tw"
                     url_1 = f'https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch={url}&json=1&delay=0'
                     instant_stock_info(url_1,stock_df)
+                    time.sleep(random.uniform(0.1, 0.5))
                     url = ''
                 
                 else:
