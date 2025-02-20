@@ -38,7 +38,7 @@ def remove_old_json_files(JSON_FILE):
 
     
 # 建立一個 DataFrame，用來存儲最新的股價資訊
-stock_df = pd.DataFrame(columns=['stock_code','name','o','h','l','c','KPattern'])
+stock_df = pd.DataFrame(columns=['stock_code','name','o','h','l','c','KPattern','pressure','band'])
 stock_df.set_index('stock_code', inplace=True)
 
 
@@ -63,7 +63,8 @@ if __name__ == "__main__":
     result = cursor.fetchone()
 
     if result is None:
-        important_stock_codes = set()
+        overnight_stock_codes = set()
+        band_stock_codes = set()
         # 獲取當前時間
         flag = True
         url = ''
@@ -71,7 +72,7 @@ if __name__ == "__main__":
         stock_codes = get_stock_code_from_csv()
 
         for stock_data in stock_codes:
-            stock_df.loc[stock_data['stock_code']] = [stock_data['name'], 0., 0., 0., 0., 0]   
+            stock_df.loc[stock_data['stock_code']] = [stock_data['name'], 0., 0., 0., 0., 0,stock_data['pressure'],0]   
         length = len(stock_codes)
         
         while (flag):
@@ -91,17 +92,22 @@ if __name__ == "__main__":
                 else:
                     url += f"{stock_data['type']}_{stock_data['stock_code']}.tw|"
             # 暫存上次的 important_stock_codes 值
-            previous_important_stock_codes = important_stock_codes.copy()
+            previous_overnight_stock_codes = overnight_stock_codes.copy()
+            previous_band_stock_codes = band_stock_codes.copy()
             # Update important_stock_codes with unique stock codes where KPattern == 1
-            important_stock_codes.clear()  # 清空集合
+            overnight_stock_codes.clear()  # 清空集合
+            band_stock_codes.clear()  # 清空集合
             # 使用 zip 将 index 和 name 配对
-            important_stock_codes = set(zip(stock_df[stock_df['KPattern'] == 1].index, 
+            overnight_stock_codes = set(zip(stock_df[stock_df['KPattern'] == 1].index, 
                                             stock_df[stock_df['KPattern'] == 1]['name']))
+            band_stock_codes = set(zip(stock_df[stock_df['band'] == 1].index, 
+                                            stock_df[stock_df['band'] == 1]['name']))
             #important_stock_codes_list = list(important_stock_codes)
-            if important_stock_codes != previous_important_stock_codes:
+            if overnight_stock_codes != previous_overnight_stock_codes or band_stock_codes != previous_band_stock_codes:
                 # 創建要寫入 JSON 的字典
                 # 将 set 转换为字典
-                data_to_save = {'隔日沖名單': {code: name for code, name in important_stock_codes}}
+                data_to_save = {'隔日沖名單': {code: name for code, name in overnight_stock_codes},
+                                '攻擊K名單': {code: name for code, name in band_stock_codes}}
 
                 # 生成新的 JSON 文件名（添加时间戳）
                 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
