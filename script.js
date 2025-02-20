@@ -40,7 +40,7 @@ async function fetchStockList() {
       const bandUlElement = document.getElementById("band-stock-list");
 
       overnightUlElement.innerHTML = "";  // 清空列表内容
-
+      bandUlElement.innerHTML = "";  // 清空列表内容
       for (const stockCode in overnightStockList) {
           if (overnightStockList.hasOwnProperty(stockCode)) {
               const stockName = overnightStockList[stockCode];
