@@ -63,3 +63,5 @@ async function fetchStockList() {
 }
 
 fetchStockList();
+// 每隔 60 秒检查一次更新
+setInterval(fetchStockList, 5000); // 5 s
