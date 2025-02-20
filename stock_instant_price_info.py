@@ -8,7 +8,7 @@ def calculate_kpattern(o,h,l,c,y,v,p):
     #漲幅大於7%  
     if (c > o) and ((c-y) > y*0.07) and v > 1000:
         kpattern = 1
-    if (c >= p) and v > 500:
+    if (c >= p) and v > 1000:
         band = 1
         
     return kpattern,band
