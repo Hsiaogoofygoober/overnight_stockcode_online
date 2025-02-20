@@ -34,19 +34,29 @@ async function fetchStockList() {
       }
 
       const data = await response.json();
-      const stockList = data["隔日沖名單"];
-      const ulElement = document.getElementById("stock-list");
+      const overnightStockList = data["隔日沖名單"];
+      const bandStockList = data["攻擊K名單"];
+      const overnightUlElement = document.getElementById("overnight-stock-list");
+      const bandUlElement = document.getElementById("band-stock-list");
 
-      ulElement.innerHTML = "";  // 清空列表内容
+      overnightUlElement.innerHTML = "";  // 清空列表内容
 
-      for (const stockCode in stockList) {
-          if (stockList.hasOwnProperty(stockCode)) {
-              const stockName = stockList[stockCode];
+      for (const stockCode in overnightStockList) {
+          if (overnightStockList.hasOwnProperty(stockCode)) {
+              const stockName = overnightStockList[stockCode];
               const li = document.createElement("li");
               li.textContent = `${stockCode} - ${stockName}`;
-              ulElement.appendChild(li);
+              overnightUlElement.appendChild(li);
           }
       }
+      for (const stockCode in bandStockList) {
+        if (bandStockList.hasOwnProperty(stockCode)) {
+            const stockName = bandStockList[stockCode];
+            const li = document.createElement("li");
+            li.textContent = `${stockCode} - ${stockName}`;
+            bandUlElement.appendChild(li);
+        }
+    }
   } catch (error) {
       console.error("Failed to fetch stock list:", error);
   }
