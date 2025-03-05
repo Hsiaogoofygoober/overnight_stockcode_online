@@ -8,7 +8,7 @@ def get_stock_code_from_csv():
             for row in csv_reader:
                 # 確保 "stock_code" 和 "type" 欄位都存在
                 if "stock_code" in row and "type" in row and "name" in row:
-                    stock.append({"stock_code": row["stock_code"].strip(), "type": row["type"].strip(), "name": row["name"].strip(), "pressure": row["pressure"].strip()})
+                    stock.append({"stock_code": row["stock_code"].strip(), "type": row["type"].strip(), "name": row["name"].strip(), "recent_pressure": row["recent_pressure"].strip(), "overnight_pressure": row["overnight_pressure"].strip()})
                 else:
                     print("The file does not contain 'stock_code' or 'type' columns.")
                     break
