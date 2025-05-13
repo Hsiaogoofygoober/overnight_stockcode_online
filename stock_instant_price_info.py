@@ -6,7 +6,7 @@ def calculate_kpattern(o,h,l,c,y,v,rp,op):
     kpattern = 0
     band = 0
     #隔日沖漲幅大於7%  
-    if (c > o) and ((c-y) > y*0.07) and v > 1000 and c >= op:
+    if (c > o) and ((c-y) > y*0.07) and v > 1000 and c >= op and c < 100:
         kpattern = 1
     #短波段大於recent pressure 
     if (c >= rp) and v > 1000:
