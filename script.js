@@ -64,3 +64,100 @@ async function fetchStockList() {
 }
 
 fetchStockList();
+
+async function getLatestShortBBWJson() {
+  const repoOwner = "Hsiaogoofygoober";
+  const repoName = "overnight_stockcode_online";
+  const branch = "master";
+  const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents?ref=${branch}`;
+
+  const resp = await fetch(apiUrl);
+  if (!resp.ok) throw new Error("GitHub API 失敗");
+  const files = await resp.json();
+
+  const targets = files
+    .filter(f => f.name.startsWith("short_bbw_") && f.name.endsWith(".json"))
+    .sort((a, b) => b.name.localeCompare(a.name)); // 依檔名(含時間戳)排序，取最新
+
+  return targets.length ? targets[0].download_url : null;
+}
+
+// 2) 下載並渲染
+async function fetchAndRenderShortBBW() {
+  try {
+    const url = await getLatestShortBBWJson();
+    if (!url) {
+      console.warn("尚未找到 short_bbw_* JSON 檔");
+      return;
+    }
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error(`下載失敗 ${resp.status}`);
+    const data = await resp.json();
+
+    const shortList = document.getElementById("short-list");
+    const bbwList = document.getElementById("bbw-list");
+    shortList.innerHTML = "";
+    bbwList.innerHTML = "";
+
+    // 依你需要：元素可做成卡片式
+    (data["放空日內波"] || []).forEach(txt => {
+      const li = document.createElement("li");
+      // 若 txt 是 "2330 台積電" 想分左右，可再切割
+      const left = document.createElement("div"); left.className = "item-left";
+      const [code, ...rest] = String(txt).split(/\s|-/); // 嘗試切出代碼與名稱
+      const name = rest.join(" ").trim();
+      const codeSpan = document.createElement("span"); codeSpan.className = "ticker"; codeSpan.textContent = code;
+      const nameSpan = document.createElement("span"); nameSpan.className = "name"; nameSpan.textContent = name || "";
+      left.appendChild(codeSpan); if (name) left.appendChild(nameSpan);
+      const badge = document.createElement("span"); badge.className = "badge"; badge.textContent = "放空";
+      li.appendChild(left); li.appendChild(badge);
+      shortList.appendChild(li);
+    });
+
+    (data["縮口"] || []).forEach(txt => {
+      const li = document.createElement("li");
+      const left = document.createElement("div"); left.className = "item-left";
+      const [code, ...rest] = String(txt).split(/\s|-/);
+      const name = rest.join(" ").trim();
+      const codeSpan = document.createElement("span"); codeSpan.className = "ticker"; codeSpan.textContent = code;
+      const nameSpan = document.createElement("span"); nameSpan.className = "name"; nameSpan.textContent = name || "";
+      left.appendChild(codeSpan); if (name) left.appendChild(nameSpan);
+      const badge = document.createElement("span"); badge.className = "badge"; badge.textContent = "縮口";
+      li.appendChild(left); li.appendChild(badge);
+      bbwList.appendChild(li);
+    });
+
+    // 顯示更新時間（可加在頁首/頁尾）
+    console.log("更新時間：", data["更新時間"]);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1) 先抓資料並渲染四個清單
+  //    - 這兩行分別是你原先的函式
+  fetchStockList();          // 讀 important_stock_codes_*.json → 填 overnight/band
+  fetchAndRenderShortBBW();  // 讀 short_bbw_*.json → 填 short/bbw
+
+  // 2) 分頁切換（用 data-target 指向 section id）
+  const buttons = document.querySelectorAll(".tab-btn");
+  const pages = document.querySelectorAll(".stock-list-container");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const targetId = btn.getAttribute("data-target");
+
+      // active 狀態切換
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // 顯示對應頁面
+      pages.forEach(sec => {
+        if (sec.id === targetId) sec.classList.add("active");
+        else sec.classList.remove("active");
+      });
+    });
+  });
+});
+
