@@ -3,37 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>隔日沖名單</title>
-    <link rel="stylesheet" href="styles.css"> <!-- 引用外部CSS文件 -->
-    <script src="script.js" defer></script> <!-- 引用外部JS文件 -->
+    <title>隔日沖與攻擊K名單</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
     <div class="container">
         <header>
-            <h1>隔日沖名單</h1>
-            <p>以下是目前的股票名單：</p>
+            <h1>股票名單</h1>
+            <p>選擇要查看的名單類型：</p>
         </header>
 
-        <section class="stock-list-container">
-            <ul id="overnight-stock-list">
-                <!-- 动态加载的股票列表 -->
-            </ul>
+        <nav class="tab-nav">
+        <ul class="tab-list">
+            <li><button class="tab-btn active" data-target="page-overnight">隔日沖名單</button></li>
+            <li><button class="tab-btn" data-target="page-band">攻擊K名單</button></li>
+            <li><button class="tab-btn" data-target="page-short">放空日內波</button></li>
+            <li><button class="tab-btn" data-target="page-bbw">縮口</button></li>
+        </ul>
+        </nav>
+
+        <section id="page-overnight" class="stock-list-container active">
+        <h2>隔日沖名單</h2>
+        <div class="stock-list"><ul id="overnight-stock-list"></ul></div>
         </section>
 
-        <header>
-            <h1>攻擊K名單</h1>
-            <p>以下是目前的股票名單：</p>
-        </header>
-
-        <section class="stock-list-container">
-            <ul id="band-stock-list">
-                <!-- 动态加载的股票列表 -->
-            </ul>
+        <section id="page-band" class="stock-list-container">
+        <h2>攻擊K名單</h2>
+        <div class="stock-list"><ul id="band-stock-list"></ul></div>
         </section>
 
+        <section id="page-short" class="stock-list-container">
+        <h2>放空日內波</h2>
+        <div class="stock-list"><ul id="short-list"></ul></div>
+        </section>
+
+        <section id="page-bbw" class="stock-list-container">
+        <h2>縮口</h2>
+        <div class="stock-list"><ul id="bbw-list"></ul></div>
+        </section>
+
+
+        <footer>
+            <p>資料來源：GitHub 自動更新</p>
+        </footer>
     </div>
-
 </body>
 </html>
