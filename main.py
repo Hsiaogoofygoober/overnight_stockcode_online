@@ -38,7 +38,7 @@ def remove_old_json_files(JSON_FILE):
 
     
 # 建立一個 DataFrame，用來存儲最新的股價資訊
-stock_df = pd.DataFrame(columns=['stock_code','name','o','h','l','c','KPattern','pressure','band'])
+stock_df = pd.DataFrame(columns=['stock_code','name','o','h','l','c','KPattern','recent_pressure','band','overnight_pressure'])
 stock_df.set_index('stock_code', inplace=True)
 
 
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         stock_codes = get_stock_code_from_csv()
 
         for stock_data in stock_codes:
-            stock_df.loc[stock_data['stock_code']] = [stock_data['name'], 0., 0., 0., 0., 0,stock_data['pressure'],0]   
+            stock_df.loc[stock_data['stock_code']] = [stock_data['name'], 0., 0., 0., 0., 0,stock_data['recent_pressure'],0,stock_data['overnight_pressure']]   
         length = len(stock_codes)
         
         while (flag):
