@@ -35,6 +35,7 @@ def remove_old_json_files(JSON_FILE):
             print(f"{file} 已刪除")
     except Exception as e:
         print(f"刪除過時文件時出現錯誤: {e}")
+        
 
     
 # 建立一個 DataFrame，用來存儲最新的股價資訊
