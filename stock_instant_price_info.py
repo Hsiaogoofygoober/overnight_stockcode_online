@@ -2,14 +2,14 @@ import requests
 import time
 import pandas as pd
 import re
-def calculate_kpattern(o,h,l,c,y,v,rp,op):
+def calculate_kpattern(o,h,l,c,y,v,ma_15,op):
     kpattern = 0
     band = 0
     #隔日沖漲幅大於7%  
     if (c > o) and ((c-y) > y*0.07) and v > 1000 and c >= op and c < 100:
         kpattern = 1
     #短波段大於recent pressure 
-    if (c >= rp) and v > 1000:
+    if (c >= ma_15) and v > 1000:
         band = 1
         
     return kpattern,band
@@ -66,9 +66,9 @@ def instant_stock_info(url,stock_df):
             v = int(item['v'])
         else:
             v = 0
-        rp = float(stock_df.loc[stock_code, 'recent_pressure'])
         op = float(stock_df.loc[stock_code, 'overnight_pressure'])
-        kpattern,band = calculate_kpattern(o,h,l,c,y,v,rp,op)
+        ma_15 = float(stock_df.loc[stock_code, 'MA15'])
+        kpattern,band = calculate_kpattern(o,h,l,c,y,v,ma_15,op)
         # 直接使用 .loc 方法根據索引更新資料
         stock_df.loc[stock_code] = [stock_df.loc[stock_code, 'name'], o, h, l, c, kpattern,rp,band,op]
 

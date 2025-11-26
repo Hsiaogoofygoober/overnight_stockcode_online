@@ -108,7 +108,7 @@ if __name__ == "__main__":
                 # 創建要寫入 JSON 的字典
                 # 将 set 转换为字典
                 data_to_save = {'隔日沖名單': {code: name for code, name in overnight_stock_codes},
-                                '攻擊K名單': {code: name for code, name in band_stock_codes}}
+                                '波段(縮口突破)': {code: name for code, name in band_stock_codes}}
 
                 # 生成新的 JSON 文件名（添加时间戳）
                 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
