@@ -2,7 +2,7 @@ import pymssql
 import time
 import threading
 from stock_instant_price_info import instant_stock_info
-from get_stock_code import get_stock_code_from_csv
+from get_stock_code import get_stock_code_from_csv,get_band_stock_code_from_csv
 import pandas as pd
 import datetime
 from linebot import LineBotApi
@@ -35,10 +35,12 @@ def remove_old_json_files(JSON_FILE):
             print(f"{file} 已刪除")
     except Exception as e:
         print(f"刪除過時文件時出現錯誤: {e}")
+        
 
     
 # 建立一個 DataFrame，用來存儲最新的股價資訊
-stock_df = pd.DataFrame(columns=['stock_code','name','o','h','l','c','KPattern','recent_pressure','band','overnight_pressure'])
+# stock_df = pd.DataFrame(columns=['stock_code','name','o','h','l','c','KPattern','recent_pressure','band','overnight_pressure'])
+stock_df = pd.DataFrame(columns=['stock_code','name','o','h','l','c','MA15','band'])
 stock_df.set_index('stock_code', inplace=True)
 
 
@@ -69,10 +71,12 @@ if __name__ == "__main__":
         flag = True
         url = ''
         count = 0
-        stock_codes = get_stock_code_from_csv()
+        # stock_codes = get_stock_code_from_csv()
+        stock_codes = get_band_stock_code_from_csv()
 
         for stock_data in stock_codes:
-            stock_df.loc[stock_data['stock_code']] = [stock_data['name'], 0., 0., 0., 0., 0,stock_data['recent_pressure'],0,stock_data['overnight_pressure']]   
+            # stock_df.loc[stock_data['stock_code']] = [stock_data['name'], 0., 0., 0., 0., 0,stock_data['recent_pressure'],0,stock_data['overnight_pressure']]
+            stock_df.loc[stock_data['stock_code']] = [stock_data['name'], 0., 0., 0., 0.,stock_data['MA15'],0]   
         length = len(stock_codes)
         
         while (flag):
@@ -98,16 +102,15 @@ if __name__ == "__main__":
             overnight_stock_codes.clear()  # 清空集合
             band_stock_codes.clear()  # 清空集合
             # 使用 zip 将 index 和 name 配对
-            overnight_stock_codes = set(zip(stock_df[stock_df['KPattern'] == 1].index, 
-                                            stock_df[stock_df['KPattern'] == 1]['name']))
+            # overnight_stock_codes = set(zip(stock_df[stock_df['KPattern'] == 1].index, 
+            #                                 stock_df[stock_df['KPattern'] == 1]['name']))
             band_stock_codes = set(zip(stock_df[stock_df['band'] == 1].index, 
                                             stock_df[stock_df['band'] == 1]['name']))
             #important_stock_codes_list = list(important_stock_codes)
             if overnight_stock_codes != previous_overnight_stock_codes or band_stock_codes != previous_band_stock_codes:
                 # 創建要寫入 JSON 的字典
                 # 将 set 转换为字典
-                data_to_save = {'隔日沖名單': {code: name for code, name in overnight_stock_codes},
-                                '攻擊K名單': {code: name for code, name in band_stock_codes}}
+                data_to_save = {'波段(縮口突破)': {code: name for code, name in band_stock_codes}}
 
                 # 生成新的 JSON 文件名（添加时间戳）
                 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")

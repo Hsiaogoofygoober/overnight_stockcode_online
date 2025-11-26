@@ -35,7 +35,7 @@ async function fetchStockList() {
 
       const data = await response.json();
       const overnightStockList = data["隔日沖名單"];
-      const bandStockList = data["攻擊K名單"];
+      const bandStockList = data["波段(縮口突破)"];
       const overnightUlElement = document.getElementById("overnight-stock-list");
       const bandUlElement = document.getElementById("band-stock-list");
 
