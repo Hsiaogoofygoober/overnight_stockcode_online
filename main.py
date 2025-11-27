@@ -36,6 +36,30 @@ def remove_old_json_files(JSON_FILE):
     except Exception as e:
         print(f"刪除過時文件時出現錯誤: {e}")
         
+def remove_old_json_files(JSON_FILE):
+    print(JSON_FILE)
+    try:
+        # 取得倉庫目錄中所有 JSON 文件
+        files_in_repo = os.listdir(REPO_DIR)
+
+        # 只挑出前綴為 important_stock_codes 且不是當前 JSON_FILE 的檔案
+        json_files = [
+            f for f in files_in_repo
+            if f.startswith("important_stock_codes") 
+            and f.endswith(".json")
+            and os.path.join(REPO_DIR, f) != JSON_FILE
+        ]
+
+        # 刪除過時的 JSON 文件
+        for file in json_files:
+            file_path = os.path.join(REPO_DIR, file)
+            os.remove(file_path)
+            print(f"{file} 已刪除")
+
+    except Exception as e:
+        print(f"刪除過時文件時出現錯誤: {e}")
+
+        
 
     
 # 建立一個 DataFrame，用來存儲最新的股價資訊
