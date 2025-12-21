@@ -9,7 +9,7 @@ def calculate_break(o,h,l,c,y,v,ma_15):
     # if (c > o) and ((c-y) > y*0.07) and v > 1000 and c >= op and c < 100:
     #     kpattern = 1
     #短波段大於MA15
-    if (c >= ma_15) and (c-ma_15 < ma_15 * 0.02) and v > 1000:
+    if (c >= ma_15):
         band = 1
         
     return band
