@@ -90,6 +90,7 @@ async function fetchAndRenderShortBBW() {
       console.warn("尚未找到 short_bbw_* JSON 檔");
       return;
     }
+
     const resp = await fetch(url);
     if (!resp.ok) throw new Error(`下載失敗 ${resp.status}`);
     const data = await resp.json();
@@ -99,35 +100,66 @@ async function fetchAndRenderShortBBW() {
     shortList.innerHTML = "";
     bbwList.innerHTML = "";
 
-    // 依你需要：元素可做成卡片式
-    (data["放空日內波"] || []).forEach(txt => {
+    /* =========================
+       放空日內波（Object）
+       ========================= */
+    const shortObj = data["放空日內波"] || {};
+    Object.entries(shortObj).forEach(([code, name]) => {
       const li = document.createElement("li");
-      // 若 txt 是 "2330 台積電" 想分左右，可再切割
-      const left = document.createElement("div"); left.className = "item-left";
-      const [code, ...rest] = String(txt).split(/\s|-/); // 嘗試切出代碼與名稱
-      const name = rest.join(" ").trim();
-      const codeSpan = document.createElement("span"); codeSpan.className = "ticker"; codeSpan.textContent = code;
-      const nameSpan = document.createElement("span"); nameSpan.className = "name"; nameSpan.textContent = name || "";
-      left.appendChild(codeSpan); if (name) left.appendChild(nameSpan);
-      const badge = document.createElement("span"); badge.className = "badge"; badge.textContent = "放空";
-      li.appendChild(left); li.appendChild(badge);
+
+      const left = document.createElement("div");
+      left.className = "item-left";
+
+      const codeSpan = document.createElement("span");
+      codeSpan.className = "ticker";
+      codeSpan.textContent = code;
+
+      const nameSpan = document.createElement("span");
+      nameSpan.className = "name";
+      nameSpan.textContent = name;
+
+      left.appendChild(codeSpan);
+      left.appendChild(nameSpan);
+
+      const badge = document.createElement("span");
+      badge.className = "badge";
+      badge.textContent = "放空";
+
+      li.appendChild(left);
+      li.appendChild(badge);
       shortList.appendChild(li);
     });
 
-    (data["縮口"] || []).forEach(txt => {
+    /* =========================
+       縮口（Object）
+       ========================= */
+    const bbwObj = data["縮口"] || {};
+    Object.entries(bbwObj).forEach(([code, name]) => {
       const li = document.createElement("li");
-      const left = document.createElement("div"); left.className = "item-left";
-      const [code, ...rest] = String(txt).split(/\s|-/);
-      const name = rest.join(" ").trim();
-      const codeSpan = document.createElement("span"); codeSpan.className = "ticker"; codeSpan.textContent = code;
-      const nameSpan = document.createElement("span"); nameSpan.className = "name"; nameSpan.textContent = name || "";
-      left.appendChild(codeSpan); if (name) left.appendChild(nameSpan);
-      const badge = document.createElement("span"); badge.className = "badge"; badge.textContent = "縮口";
-      li.appendChild(left); li.appendChild(badge);
+
+      const left = document.createElement("div");
+      left.className = "item-left";
+
+      const codeSpan = document.createElement("span");
+      codeSpan.className = "ticker";
+      codeSpan.textContent = code;
+
+      const nameSpan = document.createElement("span");
+      nameSpan.className = "name";
+      nameSpan.textContent = name;
+
+      left.appendChild(codeSpan);
+      left.appendChild(nameSpan);
+
+      const badge = document.createElement("span");
+      badge.className = "badge";
+      badge.textContent = "縮口";
+
+      li.appendChild(left);
+      li.appendChild(badge);
       bbwList.appendChild(li);
     });
 
-    // 顯示更新時間（可加在頁首/頁尾）
     console.log("更新時間：", data["更新時間"]);
   } catch (e) {
     console.error(e);
