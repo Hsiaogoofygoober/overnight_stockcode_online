@@ -34,22 +34,11 @@ async function fetchStockList() {
       }
 
       const data = await response.json();
-      const overnightStockList = data["隔日沖名單"];
-      const bandStockList = data["波段(縮口突破)"];
-      const overnightUlElement = document.getElementById("overnight-stock-list");
+      const bandStockList = data["波段(壓力突破)"];
       const bandUlElement = document.getElementById("band-stock-list");
 
-      overnightUlElement.innerHTML = "";  // 清空列表内容
       bandUlElement.innerHTML = "";  // 清空列表内容
       
-      for (const stockCode in overnightStockList) {
-          if (overnightStockList.hasOwnProperty(stockCode)) {
-              const stockName = overnightStockList[stockCode];
-              const li = document.createElement("li");
-              li.textContent = `${stockCode} - ${stockName}`;
-              overnightUlElement.appendChild(li);
-          }
-      }
       for (const stockCode in bandStockList) {
         if (bandStockList.hasOwnProperty(stockCode)) {
             const stockName = bandStockList[stockCode];
@@ -95,40 +84,8 @@ async function fetchAndRenderShortBBW() {
     if (!resp.ok) throw new Error(`下載失敗 ${resp.status}`);
     const data = await resp.json();
 
-    const shortList = document.getElementById("short-list");
     const bbwList = document.getElementById("bbw-list");
-    shortList.innerHTML = "";
     bbwList.innerHTML = "";
-
-    /* =========================
-       放空日內波（Object）
-       ========================= */
-    const shortObj = data["放空日內波"] || {};
-    Object.entries(shortObj).forEach(([code, name]) => {
-      const li = document.createElement("li");
-
-      const left = document.createElement("div");
-      left.className = "item-left";
-
-      const codeSpan = document.createElement("span");
-      codeSpan.className = "ticker";
-      codeSpan.textContent = code;
-
-      const nameSpan = document.createElement("span");
-      nameSpan.className = "name";
-      nameSpan.textContent = name;
-
-      left.appendChild(codeSpan);
-      left.appendChild(nameSpan);
-
-      const badge = document.createElement("span");
-      badge.className = "badge";
-      badge.textContent = "放空";
-
-      li.appendChild(left);
-      li.appendChild(badge);
-      shortList.appendChild(li);
-    });
 
     /* =========================
        縮口（Object）

@@ -2,14 +2,14 @@ import requests
 import time
 import pandas as pd
 import re
-def calculate_break(o,h,l,c,y,v,ma_15):
+def calculate_break(o,h,l,c,y,v,support_top):
     # kpattern = 0
     band = 0
     #隔日沖漲幅大於7%  
     # if (c > o) and ((c-y) > y*0.07) and v > 1000 and c >= op and c < 100:
     #     kpattern = 1
     #短波段大於MA15
-    if (o >= ma_15 and c >= ma_15):
+    if (c >= support_top):
         band = 1
         
     return band
@@ -67,8 +67,8 @@ def instant_stock_info(url,stock_df):
         else:
             v = 0
         # op = float(stock_df.loc[stock_code, 'overnight_pressure'])
-        ma_15 = float(stock_df.loc[stock_code, 'MA15'])
-        band = calculate_break(o,h,l,c,y,v,ma_15)
+        support_top = float(stock_df.loc[stock_code, 'support_top'])
+        band = calculate_break(o,h,l,c,y,v,support_top)
         # 直接使用 .loc 方法根據索引更新資料
-        stock_df.loc[stock_code] = [stock_df.loc[stock_code, 'name'], o, h, l, c, ma_15,band]
+        stock_df.loc[stock_code] = [stock_df.loc[stock_code, 'name'], o, h, l, c, support_top,band]
 
