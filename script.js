@@ -38,15 +38,25 @@ async function fetchStockList() {
       const bandUlElement = document.getElementById("band-stock-list");
 
       bandUlElement.innerHTML = "";  // 清空列表内容
-      
+
       for (const stockCode in bandStockList) {
-        if (bandStockList.hasOwnProperty(stockCode)) {
-            const stockName = bandStockList[stockCode];
-            const li = document.createElement("li");
-            li.textContent = `${stockCode} - ${stockName}`;
-            bandUlElement.appendChild(li);
-        }
-    }
+          if (bandStockList.hasOwnProperty(stockCode)) {
+              // 💡 關鍵變更：這裏的 target 是一整包物件
+              const stockInfo = bandStockList[stockCode]; 
+              const stockName = stockInfo.name;
+              
+              // 讀取壓力區間的天花板與地板，如果後端傳 NULL 則顯示 "未設定"
+              const bottom = stockInfo.support_bottom !== null ? stockInfo.support_bottom : "無";
+              const top = stockInfo.support_top !== null ? stockInfo.support_top : "無";
+
+              const li = document.createElement("li");
+              
+              // 渲染畫面：格式化加上 壓力區間 (Bottom ~ Top)
+              li.textContent = `${stockCode} - ${stockName} | 壓力區間: [${bottom} ~ ${top}]`;
+              
+              bandUlElement.appendChild(li);
+          }
+      }
   } catch (error) {
       console.error("Failed to fetch stock list:", error);
   }
