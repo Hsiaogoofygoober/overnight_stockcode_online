@@ -86,7 +86,6 @@ if __name__ == "__main__":
     result = cursor.fetchone()
 
     if result is None:
-        overnight_stock_codes = set()
         band_stock_codes = set()
         # 獲取當前時間
         flag = True
@@ -98,6 +97,7 @@ if __name__ == "__main__":
             stock_df.loc[stock_data['stock_code']] = [stock_data['name'], 0., 0., 0., 0.,stock_data['support_bottom'],stock_data['support_top'],0.]   
         length = len(stock_codes)
         
+        previous_band_dict = {}
         while (flag):
             current_time = datetime.datetime.now()
             # 檢查當前小時和分鐘是否是 13:25
@@ -114,30 +114,41 @@ if __name__ == "__main__":
                 
                 else:
                     url += f"{stock_data['type']}_{stock_data['stock_code']}.tw|"
-            # 暫存上次的 important_stock_codes 值
-            previous_overnight_stock_codes = overnight_stock_codes.copy()
-            previous_band_stock_codes = band_stock_codes.copy()
-            # Update important_stock_codes with unique stock codes where KPattern == 1
-            overnight_stock_codes.clear()  # 清空集合
-            band_stock_codes.clear()  # 清空集合
-            band_stock_codes = set(zip(stock_df[stock_df['band'] == 1].index, 
-                                            stock_df[stock_df['band'] == 1]['name']))
-            #important_stock_codes_list = list(important_stock_codes)
-            if overnight_stock_codes != previous_overnight_stock_codes or band_stock_codes != previous_band_stock_codes:
-                # 創建要寫入 JSON 的字典
-                # 将 set 转换为字典
-                data_to_save = {'波段(壓力突破)': {code: name for code, name in band_stock_codes}}
+                    
+           # 1. 篩選出目前符合波段突破條件 (band == 1) 的子 DataFrame
+            filtered_df = stock_df[stock_df['band'] == 1]
 
-                # 生成新的 JSON 文件名（添加时间戳）
+            # 2. 直接利用 Pandas 建立這輪的股票清單對比字典（用來判斷股票名單有沒有變動）
+            current_band_dict = {
+                code: row['name'] for code, row in filtered_df.iterrows()
+            }
+
+            # 3. 如果名單與上一輪不同（比對字典的 keys 是否一致即可，或者直接比對字典）
+            # 注意：請在 while 外面將 previous_band_dict 初始化為 {}
+            if 'previous_band_dict' not in locals() or current_band_dict != previous_band_dict:
+                previous_band_dict = current_band_dict.copy() # 更新暫存
+
+                # 4. 建立精細的 JSON 嵌套字典結構，把支撐區間塞進去
+                band_details = {}
+                for code, row in filtered_df.iterrows():
+                    band_details[code] = {
+                        "name": row['name'],
+                        "support_bottom": float(row['support_bottom']) if pd.notnull(row['support_bottom']) else None,
+                        "support_top": float(row['support_top']) if pd.notnull(row['support_top']) else None
+                    }
+                
+                data_to_save = {'波段(壓力突破)': band_details}
+
+                # 5. 生成新的 JSON 文件名並推送（維持你原本的寫法）
                 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
                 json_filename = f"D:\db_backups\overnight_stockcode_online\important_stock_codes_{timestamp}.json"
 
-                # 將字典寫入 JSON 檔案
                 with open(json_filename, 'w', encoding='utf-8') as json_file:
                     json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
+                    
                 remove_old_json_files(json_filename)    
                 push_to_github(json_filename)
                 print(timestamp)
-            
+                        
             time.sleep(3)
 
