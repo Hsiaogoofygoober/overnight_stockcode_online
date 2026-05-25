@@ -1,0 +1,19 @@
+{
+    "波段(壓力突破)": {
+        "1810": {
+            "name": "和成",
+            "support_bottom": 18.75,
+            "support_top": 19.1
+        },
+        "2881": {
+            "name": "富邦金",
+            "support_bottom": 95.5,
+            "support_top": 96.5
+        },
+        "6485": {
+            "name": "點序",
+            "support_bottom": 114.0,
+            "support_top": 116.0
+        }
+    }
+}
