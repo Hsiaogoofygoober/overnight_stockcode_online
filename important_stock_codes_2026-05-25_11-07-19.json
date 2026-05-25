@@ -1,0 +1,79 @@
+{
+    "波段(壓力突破)": {
+        "1513": {
+            "name": "中興電",
+            "support_bottom": 158.5,
+            "support_top": 158.0
+        },
+        "1514": {
+            "name": "亞力",
+            "support_bottom": 124.0,
+            "support_top": 123.0
+        },
+        "1519": {
+            "name": "華城",
+            "support_bottom": 834.0,
+            "support_top": 830.0
+        },
+        "2006": {
+            "name": "東和鋼鐵",
+            "support_bottom": 66.1,
+            "support_top": 65.6
+        },
+        "2030": {
+            "name": "彰源",
+            "support_bottom": 17.25,
+            "support_top": 17.2
+        },
+        "2324": {
+            "name": "仁寶",
+            "support_bottom": 31.75,
+            "support_top": 31.55
+        },
+        "2369": {
+            "name": "菱生",
+            "support_bottom": 33.05,
+            "support_top": 32.65
+        },
+        "2406": {
+            "name": "國碩",
+            "support_bottom": 32.4,
+            "support_top": 31.85
+        },
+        "2493": {
+            "name": "揚博",
+            "support_bottom": 142.0,
+            "support_top": 141.5
+        },
+        "3025": {
+            "name": "星通",
+            "support_bottom": 76.3,
+            "support_top": 72.9
+        },
+        "3532": {
+            "name": "台勝科",
+            "support_bottom": 250.5,
+            "support_top": 250.0
+        },
+        "6226": {
+            "name": "光鼎",
+            "support_bottom": 13.5,
+            "support_top": 13.35
+        },
+        "6443": {
+            "name": "元晶",
+            "support_bottom": 40.95,
+            "support_top": 40.35
+        },
+        "6664": {
+            "name": "群翊",
+            "support_bottom": 439.0,
+            "support_top": 436.0
+        },
+        "6937": {
+            "name": "天虹",
+            "support_bottom": 328.0,
+            "support_top": 327.0
+        }
+    }
+}
