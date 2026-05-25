@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2881": {
+            "name": "富邦金",
+            "support_bottom": 95.5,
+            "support_top": 96.5
+        },
         "3706": {
             "name": "神達",
             "support_bottom": 87.2,
