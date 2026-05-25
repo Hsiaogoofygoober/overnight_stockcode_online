@@ -150,5 +150,5 @@ if __name__ == "__main__":
                 push_to_github(json_filename)
                 print(timestamp)
                         
-            time.sleep(3)
+            time.sleep(30)  # 每 30 秒檢查一次
 
