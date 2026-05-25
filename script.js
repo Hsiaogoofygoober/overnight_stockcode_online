@@ -53,7 +53,7 @@ async function fetchStockList() {
               
               // 渲染畫面：格式化加上 壓力區間 (Bottom ~ Top)
               li.textContent = `${stockCode} - ${stockName} | 壓力區間: [${bottom} ~ ${top}]`;
-              
+              console.log(`渲染股票: ${stockCode} - ${stockName} | 壓力區間: [${bottom} ~ ${top}]`);
               bandUlElement.appendChild(li);
           }
       }
