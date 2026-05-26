@@ -1,0 +1,29 @@
+{
+    "波段(壓力突破)": {
+        "1514": {
+            "name": "亞力",
+            "support_bottom": 123.0,
+            "support_top": 123.5
+        },
+        "1810": {
+            "name": "和成",
+            "support_bottom": 18.75,
+            "support_top": 19.1
+        },
+        "2890": {
+            "name": "永豐金",
+            "support_bottom": 28.9,
+            "support_top": 29.2
+        },
+        "3689": {
+            "name": "湧德",
+            "support_bottom": 123.0,
+            "support_top": 127.0
+        },
+        "8070": {
+            "name": "長華*",
+            "support_bottom": 46.55,
+            "support_top": 46.8
+        }
+    }
+}
