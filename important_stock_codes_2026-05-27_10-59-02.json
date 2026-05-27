@@ -1,0 +1,24 @@
+{
+    "波段(壓力突破)": {
+        "1514": {
+            "name": "亞力",
+            "support_bottom": 125.0,
+            "support_top": 123.0
+        },
+        "1810": {
+            "name": "和成",
+            "support_bottom": 19.1,
+            "support_top": 18.75
+        },
+        "2548": {
+            "name": "華固",
+            "support_bottom": 122.5,
+            "support_top": 122.0
+        },
+        "5309": {
+            "name": "系統電",
+            "support_bottom": 69.1,
+            "support_top": 68.0
+        }
+    }
+}
