@@ -1,0 +1,14 @@
+{
+    "波段(壓力突破)": {
+        "3290": {
+            "name": "東浦",
+            "support_bottom": 48.65,
+            "support_top": 48.7
+        },
+        "6133": {
+            "name": "金橋",
+            "support_bottom": 23.85,
+            "support_top": 24.0
+        }
+    }
+}
