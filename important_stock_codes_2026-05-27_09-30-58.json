@@ -1,0 +1,44 @@
+{
+    "波段(壓力突破)": {
+        "1514": {
+            "name": "亞力",
+            "support_bottom": 123.0,
+            "support_top": 125.0
+        },
+        "3324": {
+            "name": "雙鴻",
+            "support_bottom": 1050.0,
+            "support_top": 1055.0
+        },
+        "3550": {
+            "name": "聯穎",
+            "support_bottom": 20.35,
+            "support_top": 20.5
+        },
+        "3689": {
+            "name": "湧德",
+            "support_bottom": 123.0,
+            "support_top": 127.0
+        },
+        "5309": {
+            "name": "系統電",
+            "support_bottom": 68.0,
+            "support_top": 69.1
+        },
+        "6153": {
+            "name": "嘉聯益",
+            "support_bottom": 18.55,
+            "support_top": 18.9
+        },
+        "6155": {
+            "name": "鈞寶",
+            "support_bottom": 58.4,
+            "support_top": 61.1
+        },
+        "6202": {
+            "name": "盛群",
+            "support_bottom": 60.2,
+            "support_top": 61.8
+        }
+    }
+}
