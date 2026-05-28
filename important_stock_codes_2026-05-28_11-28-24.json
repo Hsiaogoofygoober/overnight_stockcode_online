@@ -1,10 +1,5 @@
 {
     "波段(壓力突破)": {
-        "2548": {
-            "name": "華固",
-            "support_bottom": 122.0,
-            "support_top": 122.5
-        },
         "3413": {
             "name": "京鼎",
             "support_bottom": 315.0,
@@ -19,6 +14,11 @@
             "name": "遠傳",
             "support_bottom": 94.0,
             "support_top": 94.1
+        },
+        "5309": {
+            "name": "系統電",
+            "support_bottom": 68.0,
+            "support_top": 69.1
         },
         "6155": {
             "name": "鈞寶",
