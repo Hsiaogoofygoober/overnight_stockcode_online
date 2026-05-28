@@ -1,0 +1,19 @@
+{
+    "波段(壓力突破)": {
+        "3413": {
+            "name": "京鼎",
+            "support_bottom": 316.0,
+            "support_top": 315.0
+        },
+        "6155": {
+            "name": "鈞寶",
+            "support_bottom": 61.1,
+            "support_top": 58.4
+        },
+        "6862": {
+            "name": "三集瑞-KY",
+            "support_bottom": 192.5,
+            "support_top": 192.0
+        }
+    }
+}
