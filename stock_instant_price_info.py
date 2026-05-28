@@ -71,5 +71,5 @@ def instant_stock_info(url,stock_df):
         support_bottom = float(stock_df.loc[stock_code, 'support_bottom'])
         band = calculate_break(o,h,l,c,y,v,support_top,support_bottom)
         # 直接使用 .loc 方法根據索引更新資料
-        stock_df.loc[stock_code] = [stock_df.loc[stock_code, 'name'], o, h, l, c, support_top, support_bottom, band]
+        stock_df.loc[stock_code] = [stock_df.loc[stock_code, 'name'], o, h, l, c, support_bottom, support_top, band]
 
