@@ -1,0 +1,54 @@
+{
+    "波段(壓力突破)": {
+        "1503": {
+            "name": "士電",
+            "support_bottom": 223.0,
+            "support_top": 226.0
+        },
+        "2374": {
+            "name": "佳能",
+            "support_bottom": 80.4,
+            "support_top": 82.4
+        },
+        "2419": {
+            "name": "仲琦",
+            "support_bottom": 32.75,
+            "support_top": 33.15
+        },
+        "2548": {
+            "name": "華固",
+            "support_bottom": 122.0,
+            "support_top": 122.5
+        },
+        "3413": {
+            "name": "京鼎",
+            "support_bottom": 315.0,
+            "support_top": 316.0
+        },
+        "3550": {
+            "name": "聯穎",
+            "support_bottom": 20.35,
+            "support_top": 20.5
+        },
+        "5309": {
+            "name": "系統電",
+            "support_bottom": 68.0,
+            "support_top": 69.1
+        },
+        "6155": {
+            "name": "鈞寶",
+            "support_bottom": 58.4,
+            "support_top": 61.1
+        },
+        "6202": {
+            "name": "盛群",
+            "support_bottom": 60.2,
+            "support_top": 61.8
+        },
+        "6862": {
+            "name": "三集瑞-KY",
+            "support_bottom": 192.0,
+            "support_top": 192.5
+        }
+    }
+}
