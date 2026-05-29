@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1612": {
+            "name": "宏泰",
+            "support_bottom": 36.9,
+            "support_top": 37.15
+        },
         "6667": {
             "name": "信紘科",
             "support_bottom": 269.0,
