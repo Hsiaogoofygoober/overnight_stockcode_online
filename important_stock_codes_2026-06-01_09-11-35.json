@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2419": {
+            "name": "仲琦",
+            "support_bottom": 32.75,
+            "support_top": 33.15
+        },
         "5309": {
             "name": "系統電",
             "support_bottom": 68.0,
