@@ -5,10 +5,20 @@
             "support_bottom": 32.75,
             "support_top": 33.15
         },
+        "2497": {
+            "name": "怡利電",
+            "support_bottom": 59.9,
+            "support_top": 60.0
+        },
         "5309": {
             "name": "系統電",
             "support_bottom": 68.0,
             "support_top": 69.1
+        },
+        "6269": {
+            "name": "台郡",
+            "support_bottom": 64.8,
+            "support_top": 65.8
         }
     }
 }
