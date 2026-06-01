@@ -34,6 +34,11 @@
             "name": "台郡",
             "support_bottom": 64.8,
             "support_top": 65.8
+        },
+        "6573": {
+            "name": "虹揚-KY",
+            "support_bottom": 15.65,
+            "support_top": 16.35
         }
     }
 }
