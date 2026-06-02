@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1714": {
+            "name": "和桐",
+            "support_bottom": 9.85,
+            "support_top": 9.93
+        },
         "3321": {
             "name": "同泰",
             "support_bottom": 19.9,
