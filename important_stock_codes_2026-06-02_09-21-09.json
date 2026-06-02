@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2461": {
+            "name": "光群雷",
+            "support_bottom": 16.75,
+            "support_top": 17.0
+        },
         "3321": {
             "name": "同泰",
             "support_bottom": 19.9,
