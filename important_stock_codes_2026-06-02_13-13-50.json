@@ -20,6 +20,11 @@
             "support_bottom": 10.85,
             "support_top": 10.9
         },
+        "2419": {
+            "name": "仲琦",
+            "support_bottom": 32.75,
+            "support_top": 33.15
+        },
         "2820": {
             "name": "華票",
             "support_bottom": 16.75,
@@ -44,6 +49,11 @@
             "name": "華興",
             "support_bottom": 12.7,
             "support_top": 12.8
+        },
+        "6485": {
+            "name": "點序",
+            "support_bottom": 114.0,
+            "support_top": 116.0
         },
         "6573": {
             "name": "虹揚-KY",
