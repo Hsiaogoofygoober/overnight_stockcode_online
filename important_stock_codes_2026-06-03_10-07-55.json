@@ -5,6 +5,11 @@
             "support_bottom": 50.5,
             "support_top": 51.9
         },
+        "1434": {
+            "name": "福懋",
+            "support_bottom": 16.35,
+            "support_top": 16.4
+        },
         "1513": {
             "name": "中興電",
             "support_bottom": 168.0,
@@ -14,6 +19,11 @@
             "name": "亞力",
             "support_bottom": 124.0,
             "support_top": 124.5
+        },
+        "2501": {
+            "name": "國建",
+            "support_bottom": 22.7,
+            "support_top": 23.0
         },
         "2903": {
             "name": "遠百",
