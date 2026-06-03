@@ -29,6 +29,11 @@
             "name": "緯軟",
             "support_bottom": 135.0,
             "support_top": 137.0
+        },
+        "6425": {
+            "name": "易發",
+            "support_bottom": 89.0,
+            "support_top": 89.1
         }
     }
 }
