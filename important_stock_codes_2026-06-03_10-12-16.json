@@ -20,6 +20,11 @@
             "support_bottom": 124.0,
             "support_top": 124.5
         },
+        "2501": {
+            "name": "國建",
+            "support_bottom": 22.7,
+            "support_top": 23.0
+        },
         "2903": {
             "name": "遠百",
             "support_bottom": 22.2,
@@ -44,6 +49,11 @@
             "name": "上緯投控",
             "support_bottom": 118.5,
             "support_top": 120.0
+        },
+        "9912": {
+            "name": "偉聯",
+            "support_bottom": 12.4,
+            "support_top": 12.5
         }
     }
 }
