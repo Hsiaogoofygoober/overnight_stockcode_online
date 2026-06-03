@@ -20,6 +20,11 @@
             "support_bottom": 124.0,
             "support_top": 124.5
         },
+        "2002": {
+            "name": "中鋼",
+            "support_bottom": 19.35,
+            "support_top": 19.4
+        },
         "2014": {
             "name": "中鴻",
             "support_bottom": 18.65,
@@ -49,11 +54,6 @@
             "name": "鈺德",
             "support_bottom": 13.85,
             "support_top": 14.0
-        },
-        "3060": {
-            "name": "銘異",
-            "support_bottom": 33.35,
-            "support_top": 33.95
         },
         "3290": {
             "name": "東浦",
