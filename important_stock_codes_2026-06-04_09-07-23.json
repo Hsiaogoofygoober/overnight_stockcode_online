@@ -9,6 +9,11 @@
             "name": "銘異",
             "support_bottom": 33.35,
             "support_top": 33.95
+        },
+        "6485": {
+            "name": "點序",
+            "support_bottom": 114.0,
+            "support_top": 116.0
         }
     }
 }
