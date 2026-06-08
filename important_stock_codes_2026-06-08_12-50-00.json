@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2241": {
+            "name": "艾姆勒",
+            "support_bottom": 37.65,
+            "support_top": 38.65
+        },
         "6153": {
             "name": "嘉聯益",
             "support_bottom": 18.55,
