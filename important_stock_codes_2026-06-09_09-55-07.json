@@ -54,6 +54,11 @@
             "name": "三集瑞-KY",
             "support_bottom": 194.5,
             "support_top": 197.0
+        },
+        "8081": {
+            "name": "致新",
+            "support_bottom": 261.0,
+            "support_top": 262.5
         }
     }
 }
