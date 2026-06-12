@@ -1,5 +1,15 @@
 {
     "波段(壓力突破)": {
+        "3324": {
+            "name": "雙鴻",
+            "support_bottom": 1000.0,
+            "support_top": 1025.0
+        },
+        "3491": {
+            "name": "昇達科",
+            "support_bottom": 1740.0,
+            "support_top": 1765.0
+        },
         "4168": {
             "name": "醣聯",
             "support_bottom": 28.4,
