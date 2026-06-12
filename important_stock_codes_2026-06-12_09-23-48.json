@@ -10,11 +10,6 @@
             "support_bottom": 1000.0,
             "support_top": 1025.0
         },
-        "3491": {
-            "name": "昇達科",
-            "support_bottom": 1740.0,
-            "support_top": 1765.0
-        },
         "3706": {
             "name": "神達",
             "support_bottom": 87.2,
@@ -29,6 +24,11 @@
             "name": "達運",
             "support_bottom": 13.5,
             "support_top": 13.6
+        },
+        "6220": {
+            "name": "岳豐",
+            "support_bottom": 33.9,
+            "support_top": 34.9
         },
         "6282": {
             "name": "康舒",
