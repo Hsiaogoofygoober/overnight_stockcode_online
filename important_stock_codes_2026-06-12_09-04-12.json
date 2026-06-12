@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2323": {
+            "name": "中環",
+            "support_bottom": 11.05,
+            "support_top": 11.2
+        },
         "3324": {
             "name": "雙鴻",
             "support_bottom": 1000.0,
