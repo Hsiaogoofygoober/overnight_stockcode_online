@@ -1,0 +1,19 @@
+{
+    "波段(壓力突破)": {
+        "4168": {
+            "name": "醣聯",
+            "support_bottom": 28.4,
+            "support_top": 28.9
+        },
+        "6120": {
+            "name": "達運",
+            "support_bottom": 13.5,
+            "support_top": 13.6
+        },
+        "6282": {
+            "name": "康舒",
+            "support_bottom": 58.5,
+            "support_top": 59.1
+        }
+    }
+}
