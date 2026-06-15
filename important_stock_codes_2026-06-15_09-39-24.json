@@ -35,6 +35,11 @@
             "support_bottom": 30.4,
             "support_top": 30.6
         },
+        "3060": {
+            "name": "銘異",
+            "support_bottom": 33.35,
+            "support_top": 33.95
+        },
         "3630": {
             "name": "新鉅科",
             "support_bottom": 29.95,
