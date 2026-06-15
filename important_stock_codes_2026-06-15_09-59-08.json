@@ -30,6 +30,11 @@
             "support_bottom": 33.35,
             "support_top": 33.95
         },
+        "3413": {
+            "name": "京鼎",
+            "support_bottom": 313.0,
+            "support_top": 316.0
+        },
         "3630": {
             "name": "新鉅科",
             "support_bottom": 29.95,
@@ -44,11 +49,6 @@
             "name": "盛群",
             "support_bottom": 60.2,
             "support_top": 61.8
-        },
-        "6282": {
-            "name": "康舒",
-            "support_bottom": 58.5,
-            "support_top": 59.1
         },
         "6770": {
             "name": "力積電",
