@@ -10,6 +10,11 @@
             "support_bottom": 223.0,
             "support_top": 224.0
         },
+        "1612": {
+            "name": "宏泰",
+            "support_bottom": 37.75,
+            "support_top": 38.1
+        },
         "2010": {
             "name": "春源",
             "support_bottom": 24.6,
@@ -44,6 +49,11 @@
             "name": "康舒",
             "support_bottom": 58.5,
             "support_top": 59.1
+        },
+        "6770": {
+            "name": "力積電",
+            "support_bottom": 69.5,
+            "support_top": 70.7
         },
         "6862": {
             "name": "三集瑞-KY",
