@@ -4,6 +4,11 @@
             "name": "銘異",
             "support_bottom": 33.35,
             "support_top": 33.95
+        },
+        "5381": {
+            "name": "合正",
+            "support_bottom": 28.9,
+            "support_top": 29.0
         }
     }
 }
