@@ -1,0 +1,19 @@
+{
+    "波段(壓力突破)": {
+        "3060": {
+            "name": "銘異",
+            "support_bottom": 33.35,
+            "support_top": 33.95
+        },
+        "6770": {
+            "name": "力積電",
+            "support_bottom": 71.7,
+            "support_top": 76.2
+        },
+        "8088": {
+            "name": "品安",
+            "support_bottom": 63.9,
+            "support_top": 65.0
+        }
+    }
+}
