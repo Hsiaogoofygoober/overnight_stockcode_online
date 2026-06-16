@@ -4,11 +4,6 @@
             "name": "銘異",
             "support_bottom": 33.35,
             "support_top": 33.95
-        },
-        "8088": {
-            "name": "品安",
-            "support_bottom": 63.9,
-            "support_top": 65.0
         }
     }
 }
