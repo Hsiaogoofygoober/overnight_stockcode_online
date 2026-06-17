@@ -9,6 +9,11 @@
             "name": "銘異",
             "support_bottom": 33.35,
             "support_top": 33.95
+        },
+        "3360": {
+            "name": "尚立",
+            "support_bottom": 15.85,
+            "support_top": 15.9
         }
     }
 }
