@@ -1,0 +1,24 @@
+{
+    "波段(壓力突破)": {
+        "2338": {
+            "name": "光罩",
+            "support_bottom": 52.5,
+            "support_top": 53.9
+        },
+        "2363": {
+            "name": "矽統",
+            "support_bottom": 58.5,
+            "support_top": 59.7
+        },
+        "6770": {
+            "name": "力積電",
+            "support_bottom": 69.5,
+            "support_top": 70.7
+        },
+        "8088": {
+            "name": "品安",
+            "support_bottom": 63.9,
+            "support_top": 65.0
+        }
+    }
+}
