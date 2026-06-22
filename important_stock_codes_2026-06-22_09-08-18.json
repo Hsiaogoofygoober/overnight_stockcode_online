@@ -1,0 +1,24 @@
+{
+    "波段(壓力突破)": {
+        "1802": {
+            "name": "台玻",
+            "support_bottom": 71.9,
+            "support_top": 72.8
+        },
+        "2002": {
+            "name": "中鋼",
+            "support_bottom": 19.35,
+            "support_top": 19.4
+        },
+        "6282": {
+            "name": "康舒",
+            "support_bottom": 58.5,
+            "support_top": 59.1
+        },
+        "6770": {
+            "name": "力積電",
+            "support_bottom": 71.7,
+            "support_top": 76.2
+        }
+    }
+}
