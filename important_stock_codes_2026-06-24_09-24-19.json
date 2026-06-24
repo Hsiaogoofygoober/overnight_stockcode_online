@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2836": {
+            "name": "高雄銀",
+            "support_bottom": 12.3,
+            "support_top": 12.35
+        },
         "3051": {
             "name": "力特",
             "support_bottom": 27.3,
