@@ -9,6 +9,11 @@
             "name": "力特",
             "support_bottom": 27.3,
             "support_top": 28.7
+        },
+        "5381": {
+            "name": "合正",
+            "support_bottom": 28.9,
+            "support_top": 29.0
         }
     }
 }
