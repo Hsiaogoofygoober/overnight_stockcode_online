@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1301": {
+            "name": "台塑",
+            "support_bottom": 50.7,
+            "support_top": 51.7
+        },
         "6129": {
             "name": "普誠",
             "support_bottom": 17.2,
