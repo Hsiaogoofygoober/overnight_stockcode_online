@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1710": {
+            "name": "東聯",
+            "support_bottom": 14.35,
+            "support_top": 14.4
+        },
         "4938": {
             "name": "和碩",
             "support_bottom": 82.9,
