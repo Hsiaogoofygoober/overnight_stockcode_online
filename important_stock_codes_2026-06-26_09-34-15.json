@@ -9,6 +9,11 @@
             "name": "和成",
             "support_bottom": 19.8,
             "support_top": 20.1
+        },
+        "5515": {
+            "name": "建國",
+            "support_bottom": 39.8,
+            "support_top": 40.05
         }
     }
 }
