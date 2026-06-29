@@ -5,6 +5,11 @@
             "support_bottom": 175.5,
             "support_top": 176.0
         },
+        "1710": {
+            "name": "東聯",
+            "support_bottom": 14.35,
+            "support_top": 14.4
+        },
         "1810": {
             "name": "和成",
             "support_bottom": 19.8,
@@ -29,6 +34,11 @@
             "name": "和碩",
             "support_bottom": 83.0,
             "support_top": 84.3
+        },
+        "4967": {
+            "name": "十銓",
+            "support_bottom": 248.0,
+            "support_top": 265.5
         },
         "8131": {
             "name": "福懋科",
