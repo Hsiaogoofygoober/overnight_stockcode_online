@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1434": {
+            "name": "福懋",
+            "support_bottom": 16.95,
+            "support_top": 17.0
+        },
         "1513": {
             "name": "中興電",
             "support_bottom": 175.5,
