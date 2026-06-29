@@ -49,6 +49,11 @@
             "name": "福懋科",
             "support_bottom": 69.0,
             "support_top": 70.0
+        },
+        "8183": {
+            "name": "精星",
+            "support_bottom": 32.25,
+            "support_top": 32.95
         }
     }
 }
