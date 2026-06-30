@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1810": {
+            "name": "和成",
+            "support_bottom": 19.8,
+            "support_top": 20.1
+        },
         "2449": {
             "name": "京元電子",
             "support_bottom": 316.0,
@@ -9,6 +14,11 @@
             "name": "京鼎",
             "support_bottom": 313.0,
             "support_top": 316.0
+        },
+        "3706": {
+            "name": "神達",
+            "support_bottom": 86.8,
+            "support_top": 88.3
         },
         "8033": {
             "name": "雷虎",
