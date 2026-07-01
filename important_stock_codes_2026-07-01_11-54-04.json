@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2338": {
+            "name": "光罩",
+            "support_bottom": 52.5,
+            "support_top": 53.9
+        },
         "2820": {
             "name": "華票",
             "support_bottom": 17.65,
