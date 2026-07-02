@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1455": {
+            "name": "集盛",
+            "support_bottom": 9.92,
+            "support_top": 10.05
+        },
         "3060": {
             "name": "銘異",
             "support_bottom": 35.0,
