@@ -29,6 +29,11 @@
             "name": "龍德造船",
             "support_bottom": 146.5,
             "support_top": 147.0
+        },
+        "7402": {
+            "name": "邑錡",
+            "support_bottom": 135.5,
+            "support_top": 137.0
         }
     }
 }
