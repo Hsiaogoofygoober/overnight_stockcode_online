@@ -4,6 +4,11 @@
             "name": "聯成",
             "support_bottom": 13.0,
             "support_top": 13.05
+        },
+        "6505": {
+            "name": "台塑化",
+            "support_bottom": 57.6,
+            "support_top": 58.0
         }
     }
 }
