@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2637": {
+            "name": "慧洋-KY",
+            "support_bottom": 75.9,
+            "support_top": 76.9
+        },
         "5309": {
             "name": "系統電",
             "support_bottom": 67.9,
