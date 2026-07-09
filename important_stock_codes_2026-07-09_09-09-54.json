@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2884": {
+            "name": "玉山金",
+            "support_bottom": 34.9,
+            "support_top": 35.0
+        },
         "4938": {
             "name": "和碩",
             "support_bottom": 83.0,
