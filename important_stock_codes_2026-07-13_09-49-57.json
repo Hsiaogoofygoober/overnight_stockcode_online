@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2231": {
+            "name": "為升",
+            "support_bottom": 116.5,
+            "support_top": 117.5
+        },
         "6753": {
             "name": "龍德造船",
             "support_bottom": 151.0,
