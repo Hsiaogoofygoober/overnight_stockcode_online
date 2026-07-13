@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "6753": {
+            "name": "龍德造船",
+            "support_bottom": 151.0,
+            "support_top": 152.0
+        },
         "8104": {
             "name": "錸寶",
             "support_bottom": 40.8,
