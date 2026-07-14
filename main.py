@@ -8,6 +8,8 @@ import datetime
 import json
 import os
 import random
+
+from db_config import DB_SETTINGS
 REPO_DIR = 'D:\db_backups\overnight_stockcode_online'
 # 提交并推送到 GitHub，同时刷新 CDN 缓存
 def push_to_github(json_filename):    
@@ -67,13 +69,7 @@ stock_df.set_index('stock_code', inplace=True)
 
 
 if __name__ == "__main__":
-    db_settings = {
-            "host": "127.0.0.1",
-            "user": "user",
-            "password": "291800",
-            "database": "ncu_database",
-            "charset": "utf8"
-        }
+    db_settings = DB_SETTINGS
 
     # 連接到資料庫
     conn = pymssql.connect(**db_settings)
