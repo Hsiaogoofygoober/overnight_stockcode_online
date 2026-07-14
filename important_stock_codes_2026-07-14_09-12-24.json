@@ -4,6 +4,11 @@
             "name": "中石化",
             "support_bottom": 8.8,
             "support_top": 8.9
+        },
+        "2231": {
+            "name": "為升",
+            "support_bottom": 116.5,
+            "support_top": 117.5
         }
     }
 }
