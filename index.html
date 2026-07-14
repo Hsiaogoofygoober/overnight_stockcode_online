@@ -13,23 +13,30 @@
         <header>
             <h1>股票名單</h1>
             <p>選擇要查看的名單類型：</p>
+            <p class="update-time" id="update-time"></p>
         </header>
 
         <nav class="tab-nav">
         <ul class="tab-list">
-            <li><button class="tab-btn" data-target="page-band">波段(壓力突破)</button></li>
+            <li><button class="tab-btn active" data-target="page-band">波段(壓力突破)</button></li>
             <li><button class="tab-btn" data-target="page-bbw">縮口(準備表態)</button></li>
         </ul>
         </nav>
 
         <section id="page-band" class="stock-list-container active">
-        <h2>波段(壓力突破)</h2>
-        <div class="stock-list"><ul id="band-stock-list"></ul></div>
+        <div class="section-head">
+            <h2>波段(壓力突破)</h2>
+            <span class="count-badge" id="band-count"></span>
+        </div>
+        <div class="stock-list"><ul id="band-stock-list"><li class="state-row">載入中…</li></ul></div>
         </section>
 
         <section id="page-bbw" class="stock-list-container">
-        <h2>縮口(準備表態)</h2>
-        <div class="stock-list"><ul id="bbw-list"></ul></div>
+        <div class="section-head">
+            <h2>縮口(準備表態)</h2>
+            <span class="count-badge" id="bbw-count"></span>
+        </div>
+        <div class="stock-list"><ul id="bbw-list"><li class="state-row">載入中…</li></ul></div>
         </section>
 
 
