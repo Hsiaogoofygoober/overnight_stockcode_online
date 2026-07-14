@@ -95,7 +95,7 @@ header p{
   transition: transform .12s ease, background .2s ease, border-color .2s ease, color .2s ease;
 }
 .tab-btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.16); }
-.tab-btn:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+.tab-btn:focus-visible{ outline: 2px solid var(--accent); outline-offset: -3px; }
 .tab-btn.active{
   background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
   color: #08110a;
@@ -148,7 +148,7 @@ header p{
 
 /* Stock item cards */
 ul{ list-style: none; }
-li{
+.stock-list li{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -161,13 +161,13 @@ li{
   box-shadow: 0 6px 16px rgba(0,0,0,.28);
   transition: transform .12s ease, border-color .2s ease, background .2s ease;
 }
-li:hover{
+.stock-list li:hover{
   transform: translateY(-1px);
   border-color: rgba(34,197,94,.25);
   background: linear-gradient(180deg, #0f181f 0%, #0c1419 100%);
 }
-li:first-child{ margin-top: 0; }
-li:last-child{ margin-bottom: 0; }
+.stock-list li:first-child{ margin-top: 0; }
+.stock-list li:last-child{ margin-bottom: 0; }
 
 /* Left: code + name */
 .item-left{
@@ -230,7 +230,7 @@ footer{
 /* Small screens */
 @media (max-width: 560px){
   .container{ padding: 20px; }
-  li{ flex-direction: column; align-items: flex-start; }
+  .stock-list li{ flex-direction: column; align-items: flex-start; }
   .item-left{ width: 100%; }
   .name{ white-space: normal; }
 }
