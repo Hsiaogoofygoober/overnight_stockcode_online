@@ -1,145 +1,162 @@
-async function getLatestJsonFile() {
-  const repoOwner = "Hsiaogoofygoober"; // 仓库拥有者
-  const repoName = "overnight_stockcode_online"; // 仓库名称
-  const branch = "master"; // 分支名称
+const REPO_OWNER = "Hsiaogoofygoober";
+const REPO_NAME = "overnight_stockcode_online";
+const BRANCH = "master";
+const CONTENTS_API = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents?ref=${BRANCH}`;
 
-  const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents?ref=${branch}`;
+let repoFilesPromise = null;
 
-  try {
-      const response = await fetch(apiUrl);
-      const files = await response.json();
-      if (Array.isArray(files)) {
-          // 按文件名（即时间戳）排序，并选择最新的文件
-          const sortedFiles = files.filter(file => file.name.startsWith('important_stock_codes_'))
-                                    .sort((a, b) => b.name.localeCompare(a.name)); // 根据文件名排序
-          const latestFile = sortedFiles[0];
-          return latestFile.download_url; // 获取最新文件的下载链接
-      }
-  } catch (error) {
-      console.error("Error fetching file list from GitHub:", error);
+// 只打一次 GitHub contents API，兩個清單共用結果，避免重複請求撞到 rate limit
+function getRepoFiles() {
+  if (!repoFilesPromise) {
+    repoFilesPromise = fetch(CONTENTS_API).then(resp => {
+      if (!resp.ok) throw new Error(`GitHub API 失敗 (${resp.status})`);
+      return resp.json();
+    });
   }
+  return repoFilesPromise;
 }
 
-async function fetchStockList() {
-  const jsonUrl = await getLatestJsonFile(); // 获取最新的 JSON 文件 URL
-  if (!jsonUrl) {
-      console.error("No JSON file found.");
+async function getLatestFileUrl(prefix) {
+  const files = await getRepoFiles();
+  if (!Array.isArray(files)) return null;
+  const matched = files
+    .filter(f => f.name.startsWith(prefix) && f.name.endsWith(".json"))
+    .sort((a, b) => b.name.localeCompare(a.name)); // 檔名含時間戳，字串排序即可取得最新
+  return matched.length ? matched[0].download_url : null;
+}
+
+function setState(ulElement, message) {
+  ulElement.innerHTML = "";
+  const li = document.createElement("li");
+  li.className = "state-row";
+  li.textContent = message;
+  ulElement.appendChild(li);
+}
+
+function setCount(countElement, n) {
+  countElement.textContent = n > 0 ? `共 ${n} 檔` : "";
+}
+
+function makeStockItem(code, name, badgeText) {
+  const li = document.createElement("li");
+
+  const left = document.createElement("div");
+  left.className = "item-left";
+
+  const codeSpan = document.createElement("span");
+  codeSpan.className = "ticker";
+  codeSpan.textContent = code;
+
+  const nameSpan = document.createElement("span");
+  nameSpan.className = "name";
+  nameSpan.textContent = name;
+
+  left.appendChild(codeSpan);
+  left.appendChild(nameSpan);
+
+  const badge = document.createElement("span");
+  badge.className = "badge";
+  badge.textContent = badgeText;
+
+  li.appendChild(left);
+  li.appendChild(badge);
+  return li;
+}
+
+function showUpdateTime(timeText) {
+  if (!timeText) return;
+  const el = document.getElementById("update-time");
+  if (el) el.textContent = `最後更新：${timeText}`;
+}
+
+async function fetchAndRenderBand() {
+  const bandUlElement = document.getElementById("band-stock-list");
+  const bandCountElement = document.getElementById("band-count");
+
+  try {
+    const jsonUrl = await getLatestFileUrl("important_stock_codes_");
+    if (!jsonUrl) {
+      setState(bandUlElement, "尚未找到資料檔案");
+      setCount(bandCountElement, 0);
       return;
-  }
+    }
 
-  try {
-      const response = await fetch(jsonUrl);
-      if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+    const response = await fetch(jsonUrl);
+    if (!response.ok) throw new Error(`下載失敗 (${response.status})`);
 
-      const data = await response.json();
-      const bandStockList = data["波段(壓力突破)"];
-      const bandUlElement = document.getElementById("band-stock-list");
+    const data = await response.json();
+    const bandStockList = data["波段(壓力突破)"] || {};
 
-      bandUlElement.innerHTML = "";  // 清空列表内容
+    const entries = Object.entries(bandStockList);
+    bandUlElement.innerHTML = "";
 
-      for (const stockCode in bandStockList) {
-          if (bandStockList.hasOwnProperty(stockCode)) {
-              // 💡 關鍵變更：這裏的 target 是一整包物件
-              const stockInfo = bandStockList[stockCode]; 
-              const stockName = stockInfo.name;
-              
-              // 讀取壓力區間的天花板與地板，如果後端傳 NULL 則顯示 "未設定"
-              const bottom = stockInfo.support_bottom !== null ? stockInfo.support_bottom : "無";
-              const top = stockInfo.support_top !== null ? stockInfo.support_top : "無";
+    if (entries.length === 0) {
+      setState(bandUlElement, "目前沒有符合條件的股票");
+      setCount(bandCountElement, 0);
+      return;
+    }
 
-              const li = document.createElement("li");
-              
-              // 渲染畫面：格式化加上 壓力區間 (Bottom ~ Top)
-              li.textContent = `${stockCode} - ${stockName} | 壓力區間: [${bottom} ~ ${top}]`;
-              console.log(`渲染股票: ${stockCode} - ${stockName} | 壓力區間: [${bottom} ~ ${top}]`);
-              bandUlElement.appendChild(li);
-          }
-      }
+    entries.forEach(([stockCode, stockInfo]) => {
+      const bottom = stockInfo.support_bottom ?? "無";
+      const top = stockInfo.support_top ?? "無";
+      const li = makeStockItem(stockCode, stockInfo.name, `壓力區間 ${bottom} ~ ${top}`);
+      bandUlElement.appendChild(li);
+    });
+
+    setCount(bandCountElement, entries.length);
   } catch (error) {
-      console.error("Failed to fetch stock list:", error);
+    console.error("Failed to fetch band stock list:", error);
+    setState(bandUlElement, "資料載入失敗，請稍後再試");
+    setCount(bandCountElement, 0);
   }
 }
 
-fetchStockList();
-
-async function getLatestShortBBWJson() {
-  const repoOwner = "Hsiaogoofygoober";
-  const repoName = "overnight_stockcode_online";
-  const branch = "master";
-  const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents?ref=${branch}`;
-
-  const resp = await fetch(apiUrl);
-  if (!resp.ok) throw new Error("GitHub API 失敗");
-  const files = await resp.json();
-
-  const targets = files
-    .filter(f => f.name.startsWith("short_bbw_") && f.name.endsWith(".json"))
-    .sort((a, b) => b.name.localeCompare(a.name)); // 依檔名(含時間戳)排序，取最新
-
-  return targets.length ? targets[0].download_url : null;
-}
-
-// 2) 下載並渲染
 async function fetchAndRenderShortBBW() {
+  const bbwList = document.getElementById("bbw-list");
+  const bbwCountElement = document.getElementById("bbw-count");
+
   try {
-    const url = await getLatestShortBBWJson();
+    const url = await getLatestFileUrl("short_bbw_");
     if (!url) {
-      console.warn("尚未找到 short_bbw_* JSON 檔");
+      setState(bbwList, "尚未找到資料檔案");
+      setCount(bbwCountElement, 0);
       return;
     }
 
     const resp = await fetch(url);
-    if (!resp.ok) throw new Error(`下載失敗 ${resp.status}`);
+    if (!resp.ok) throw new Error(`下載失敗 (${resp.status})`);
     const data = await resp.json();
 
-    const bbwList = document.getElementById("bbw-list");
+    const bbwObj = data["縮口"] || {};
+    const entries = Object.entries(bbwObj);
     bbwList.innerHTML = "";
 
-    /* =========================
-       縮口（Object）
-       ========================= */
-    const bbwObj = data["縮口"] || {};
-    Object.entries(bbwObj).forEach(([code, name]) => {
-      const li = document.createElement("li");
+    if (entries.length === 0) {
+      setState(bbwList, "目前沒有符合條件的股票");
+      setCount(bbwCountElement, 0);
+      return;
+    }
 
-      const left = document.createElement("div");
-      left.className = "item-left";
-
-      const codeSpan = document.createElement("span");
-      codeSpan.className = "ticker";
-      codeSpan.textContent = code;
-
-      const nameSpan = document.createElement("span");
-      nameSpan.className = "name";
-      nameSpan.textContent = name;
-
-      left.appendChild(codeSpan);
-      left.appendChild(nameSpan);
-
-      const badge = document.createElement("span");
-      badge.className = "badge";
-      badge.textContent = "縮口";
-
-      li.appendChild(left);
-      li.appendChild(badge);
+    entries.forEach(([code, stockInfo]) => {
+      const bottom = stockInfo.support_bottom ?? "無";
+      const top = stockInfo.support_top ?? "無";
+      const li = makeStockItem(code, stockInfo.name, `壓力區間 ${bottom} ~ ${top}`);
       bbwList.appendChild(li);
     });
 
-    console.log("更新時間：", data["更新時間"]);
-  } catch (e) {
-    console.error(e);
+    setCount(bbwCountElement, entries.length);
+    showUpdateTime(data["更新時間"]);
+  } catch (error) {
+    console.error("Failed to fetch short BBW list:", error);
+    setState(bbwList, "資料載入失敗，請稍後再試");
+    setCount(bbwCountElement, 0);
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1) 先抓資料並渲染四個清單
-  //    - 這兩行分別是你原先的函式
-  fetchStockList();          // 讀 important_stock_codes_*.json → 填 overnight/band
-  fetchAndRenderShortBBW();  // 讀 short_bbw_*.json → 填 short/bbw
+  fetchAndRenderBand();
+  fetchAndRenderShortBBW();
 
-  // 2) 分頁切換（用 data-target 指向 section id）
   const buttons = document.querySelectorAll(".tab-btn");
   const pages = document.querySelectorAll(".stock-list-container");
 
@@ -147,16 +164,12 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       const targetId = btn.getAttribute("data-target");
 
-      // active 狀態切換
       buttons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
-      // 顯示對應頁面
       pages.forEach(sec => {
-        if (sec.id === targetId) sec.classList.add("active");
-        else sec.classList.remove("active");
+        sec.classList.toggle("active", sec.id === targetId);
       });
     });
   });
 });
-
