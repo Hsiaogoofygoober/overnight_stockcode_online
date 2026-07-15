@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "3060": {
+            "name": "銘異",
+            "support_bottom": 34.25,
+            "support_top": 34.35
+        },
         "6770": {
             "name": "力積電",
             "support_bottom": 69.5,
