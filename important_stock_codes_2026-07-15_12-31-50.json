@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2231": {
+            "name": "為升",
+            "support_bottom": 116.5,
+            "support_top": 117.5
+        },
         "2393": {
             "name": "億光",
             "support_bottom": 67.9,
