@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1314": {
+            "name": "中石化",
+            "support_bottom": 8.8,
+            "support_top": 8.92
+        },
         "2393": {
             "name": "億光",
             "support_bottom": 67.9,
