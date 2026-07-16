@@ -4,6 +4,11 @@
             "name": "中石化",
             "support_bottom": 8.8,
             "support_top": 8.92
+        },
+        "2393": {
+            "name": "億光",
+            "support_bottom": 68.7,
+            "support_top": 68.8
         }
     }
 }
