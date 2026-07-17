@@ -37,12 +37,40 @@ body{
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 28px;
+  position: relative;
 }
 
 /* Header */
 header{
   text-align: center;
   margin-bottom: 14px;
+}
+
+/* Top-right page nav (程式選股 / 市場分析) */
+.page-nav{
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  display: flex;
+  gap: 8px;
+}
+.page-nav-link{
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #0f141a;
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .12s ease, background .2s ease, border-color .2s ease, color .2s ease;
+}
+.page-nav-link:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.16); color: var(--text); }
+.page-nav-link.active{
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
+  color: #08110a;
+  font-weight: 700;
+  border-color: transparent;
 }
 h1{
   font-size: 30px;
@@ -194,6 +222,8 @@ ul{ list-style: none; }
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+a.name{ text-decoration: none; }
+a.name:hover{ text-decoration: underline; }
 
 /* Right: badge (狀態/標籤) */
 .badge{
@@ -219,6 +249,33 @@ ul{ list-style: none; }
 }
 .state-row:hover{ transform: none; }
 
+/* Pagination (市場分析頁) */
+.pager{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+.pager-btn{
+  appearance: none;
+  border: 1px solid var(--border);
+  background: #0f141a;
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform .12s ease, border-color .2s ease, opacity .2s ease;
+}
+.pager-btn:hover:not(:disabled){ transform: translateY(-1px); border-color: rgba(255,255,255,.16); }
+.pager-btn:disabled{ opacity: .35; cursor: default; }
+.pager-label{
+  font-size: 13px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
 /* Footer */
 footer{
   text-align: center;
@@ -230,6 +287,7 @@ footer{
 /* Small screens */
 @media (max-width: 560px){
   .container{ padding: 20px; }
+  .page-nav{ position: static; justify-content: center; margin-bottom: 14px; }
   .stock-list li{ flex-direction: column; align-items: flex-start; }
   .item-left{ width: 100%; }
   .name{ white-space: normal; }

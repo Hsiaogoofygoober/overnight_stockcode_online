@@ -25,18 +25,6 @@ async function getLatestFileUrl(prefix) {
   return matched.length ? matched[0].download_url : null;
 }
 
-function setState(ulElement, message) {
-  ulElement.innerHTML = "";
-  const li = document.createElement("li");
-  li.className = "state-row";
-  li.textContent = message;
-  ulElement.appendChild(li);
-}
-
-function setCount(countElement, n) {
-  countElement.textContent = n > 0 ? `共 ${n} 檔` : "";
-}
-
 function makeStockItem(code, name, badgeText) {
   const li = document.createElement("li");
 
@@ -61,12 +49,6 @@ function makeStockItem(code, name, badgeText) {
   li.appendChild(left);
   li.appendChild(badge);
   return li;
-}
-
-function showUpdateTime(timeText) {
-  if (!timeText) return;
-  const el = document.getElementById("update-time");
-  if (el) el.textContent = `最後更新：${timeText}`;
 }
 
 async function fetchAndRenderBand() {
