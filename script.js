@@ -112,6 +112,7 @@ async function fetchAndRenderShortBBW() {
     const bbwObj = data["縮口"] || {};
     const entries = Object.entries(bbwObj);
     bbwList.innerHTML = "";
+    showUpdateTime(data["更新時間"]);
 
     if (entries.length === 0) {
       setState(bbwList, "目前沒有符合條件的股票");
@@ -127,7 +128,6 @@ async function fetchAndRenderShortBBW() {
     });
 
     setCount(bbwCountElement, entries.length);
-    showUpdateTime(data["更新時間"]);
   } catch (error) {
     console.error("Failed to fetch short BBW list:", error);
     setState(bbwList, "資料載入失敗，請稍後再試");
