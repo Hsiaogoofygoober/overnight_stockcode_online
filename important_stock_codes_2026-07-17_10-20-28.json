@@ -1,0 +1,14 @@
+{
+    "波段(壓力突破)": {
+        "2412": {
+            "name": "中華電",
+            "support_bottom": 136.5,
+            "support_top": 137.0
+        },
+        "2884": {
+            "name": "玉山金",
+            "support_bottom": 34.8,
+            "support_top": 35.0
+        }
+    }
+}
