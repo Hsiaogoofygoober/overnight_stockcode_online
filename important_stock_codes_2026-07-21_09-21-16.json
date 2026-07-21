@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1466": {
+            "name": "聚隆",
+            "support_bottom": 17.7,
+            "support_top": 17.75
+        },
         "2006": {
             "name": "東和鋼鐵",
             "support_bottom": 69.5,
