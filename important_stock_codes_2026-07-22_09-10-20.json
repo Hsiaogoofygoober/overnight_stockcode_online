@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2317": {
+            "name": "鴻海",
+            "support_bottom": 247.0,
+            "support_top": 255.0
+        },
         "6155": {
             "name": "鈞寶",
             "support_bottom": 58.1,
