@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1723": {
+            "name": "中碳",
+            "support_bottom": 87.4,
+            "support_top": 88.7
+        },
         "3594": {
             "name": "磐儀",
             "support_bottom": 53.7,
