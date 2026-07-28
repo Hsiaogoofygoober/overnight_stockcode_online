@@ -1,0 +1,19 @@
+{
+    "波段(壓力突破)": {
+        "2838": {
+            "name": "聯邦銀",
+            "support_bottom": 20.35,
+            "support_top": 20.45
+        },
+        "3594": {
+            "name": "磐儀",
+            "support_bottom": 53.7,
+            "support_top": 54.1
+        },
+        "4566": {
+            "name": "時碩工業",
+            "support_bottom": 69.7,
+            "support_top": 71.6
+        }
+    }
+}
