@@ -112,6 +112,9 @@ class IntradayBandMonitor:
             ]
         length = len(stock_codes)
 
+        # 開盤前先清空舊的 important_stock_codes_*.json，避免網頁短暫顯示前一天的舊名單
+        self.save_and_publish(self.stock_df[self.stock_df['band'] == 1])
+
         flag = True
         while flag:
             current_time = datetime.datetime.now()
