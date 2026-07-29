@@ -9,6 +9,11 @@
             "name": "圓展",
             "support_bottom": 40.3,
             "support_top": 40.75
+        },
+        "6199": {
+            "name": "天品",
+            "support_bottom": 99.7,
+            "support_top": 103.5
         }
     }
 }
