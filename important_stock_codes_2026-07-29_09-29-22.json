@@ -4,6 +4,11 @@
             "name": "聯邦銀",
             "support_bottom": 20.35,
             "support_top": 20.45
+        },
+        "3669": {
+            "name": "圓展",
+            "support_bottom": 40.3,
+            "support_top": 40.75
         }
     }
 }
