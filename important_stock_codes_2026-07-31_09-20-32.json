@@ -54,6 +54,11 @@
             "name": "緯穎",
             "support_bottom": 4890.0,
             "support_top": 5040.0
+        },
+        "8033": {
+            "name": "雷虎",
+            "support_bottom": 154.0,
+            "support_top": 157.0
         }
     }
 }
