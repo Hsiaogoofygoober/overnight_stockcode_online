@@ -10,6 +10,11 @@
             "support_bottom": 6.98,
             "support_top": 7.03
         },
+        "2103": {
+            "name": "台橡",
+            "support_bottom": 20.15,
+            "support_top": 20.6
+        },
         "2330": {
             "name": "台積電",
             "support_bottom": 2280.0,
