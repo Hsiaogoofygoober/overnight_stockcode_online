@@ -4,6 +4,11 @@
             "name": "台積電",
             "support_bottom": 2280.0,
             "support_top": 2290.0
+        },
+        "2645": {
+            "name": "長榮航太",
+            "support_bottom": 173.5,
+            "support_top": 177.0
         }
     }
 }
