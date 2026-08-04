@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "3260": {
+            "name": "威剛",
+            "support_bottom": 386.5,
+            "support_top": 392.5
+        },
         "4534": {
             "name": "慶騰",
             "support_bottom": 31.65,
