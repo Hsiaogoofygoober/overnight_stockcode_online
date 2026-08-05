@@ -24,6 +24,11 @@
             "name": "盛群",
             "support_bottom": 59.4,
             "support_top": 60.5
+        },
+        "6547": {
+            "name": "高端疫苗",
+            "support_bottom": 49.85,
+            "support_top": 50.1
         }
     }
 }
