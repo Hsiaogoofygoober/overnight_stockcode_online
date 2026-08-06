@@ -5,6 +5,11 @@
             "support_bottom": 24.15,
             "support_top": 24.25
         },
+        "1608": {
+            "name": "華榮",
+            "support_bottom": 34.25,
+            "support_top": 34.4
+        },
         "2421": {
             "name": "建準",
             "support_bottom": 149.0,
@@ -14,6 +19,11 @@
             "name": "雙鴻",
             "support_bottom": 1050.0,
             "support_top": 1055.0
+        },
+        "3550": {
+            "name": "聯穎",
+            "support_bottom": 21.8,
+            "support_top": 23.05
         }
     }
 }
