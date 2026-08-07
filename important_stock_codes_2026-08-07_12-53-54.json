@@ -9,6 +9,11 @@
             "name": "時碩工業",
             "support_bottom": 70.7,
             "support_top": 71.6
+        },
+        "6547": {
+            "name": "高端疫苗",
+            "support_bottom": 50.7,
+            "support_top": 51.1
         }
     }
 }
