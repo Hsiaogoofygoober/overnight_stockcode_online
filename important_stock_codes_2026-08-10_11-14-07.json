@@ -29,6 +29,11 @@
             "name": "立端",
             "support_bottom": 82.0,
             "support_top": 84.8
+        },
+        "8112": {
+            "name": "至上",
+            "support_bottom": 90.7,
+            "support_top": 92.4
         }
     }
 }
