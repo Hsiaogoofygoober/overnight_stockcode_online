@@ -19,6 +19,11 @@
             "name": "盛群",
             "support_bottom": 59.4,
             "support_top": 60.5
+        },
+        "6245": {
+            "name": "立端",
+            "support_bottom": 82.0,
+            "support_top": 84.8
         }
     }
 }
