@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1605": {
+            "name": "華新",
+            "support_bottom": 35.3,
+            "support_top": 35.6
+        },
         "2465": {
             "name": "麗臺",
             "support_bottom": 84.3,
