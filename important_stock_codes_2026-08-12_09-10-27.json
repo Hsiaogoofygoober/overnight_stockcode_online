@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2465": {
+            "name": "麗臺",
+            "support_bottom": 87.5,
+            "support_top": 87.7
+        },
         "3324": {
             "name": "雙鴻",
             "support_bottom": 1050.0,
