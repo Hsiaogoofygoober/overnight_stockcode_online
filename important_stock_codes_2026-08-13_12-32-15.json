@@ -19,6 +19,11 @@
             "name": "高端疫苗",
             "support_bottom": 50.7,
             "support_top": 51.1
+        },
+        "6770": {
+            "name": "力積電",
+            "support_bottom": 71.7,
+            "support_top": 74.8
         }
     }
 }
