@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "3044": {
+            "name": "健鼎",
+            "support_bottom": 485.0,
+            "support_top": 485.5
+        },
         "6547": {
             "name": "高端疫苗",
             "support_bottom": 50.9,
