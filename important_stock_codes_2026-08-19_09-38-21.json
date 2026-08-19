@@ -14,6 +14,11 @@
             "name": "台灣大",
             "support_bottom": 111.5,
             "support_top": 112.0
+        },
+        "6187": {
+            "name": "萬潤",
+            "support_bottom": 1215.0,
+            "support_top": 1265.0
         }
     }
 }
