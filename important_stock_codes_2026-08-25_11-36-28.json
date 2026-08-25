@@ -9,6 +9,11 @@
             "name": "台航",
             "support_bottom": 31.95,
             "support_top": 32.0
+        },
+        "6218": {
+            "name": "豪勉",
+            "support_bottom": 38.35,
+            "support_top": 39.5
         }
     }
 }
