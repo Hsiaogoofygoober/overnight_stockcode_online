@@ -19,6 +19,11 @@
             "name": "貿聯-KY",
             "support_bottom": 2055.0,
             "support_top": 2060.0
+        },
+        "6829": {
+            "name": "千附精密",
+            "support_bottom": 232.0,
+            "support_top": 243.5
         }
     }
 }
