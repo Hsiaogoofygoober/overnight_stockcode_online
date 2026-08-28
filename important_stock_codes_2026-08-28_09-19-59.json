@@ -19,6 +19,11 @@
             "name": "豪勉",
             "support_bottom": 39.55,
             "support_top": 40.25
+        },
+        "6426": {
+            "name": "統新",
+            "support_bottom": 250.0,
+            "support_top": 260.5
         }
     }
 }
