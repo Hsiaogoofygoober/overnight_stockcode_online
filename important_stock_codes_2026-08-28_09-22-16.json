@@ -10,6 +10,11 @@
             "support_bottom": 485.0,
             "support_top": 485.5
         },
+        "3211": {
+            "name": "順達",
+            "support_bottom": 386.0,
+            "support_top": 399.0
+        },
         "3324": {
             "name": "雙鴻",
             "support_bottom": 1040.0,
@@ -19,11 +24,6 @@
             "name": "豪勉",
             "support_bottom": 39.55,
             "support_top": 40.25
-        },
-        "6426": {
-            "name": "統新",
-            "support_bottom": 250.0,
-            "support_top": 260.5
         }
     }
 }
