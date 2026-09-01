@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "3264": {
+            "name": "欣銓",
+            "support_bottom": 221.5,
+            "support_top": 235.5
+        },
         "5009": {
             "name": "榮剛",
             "support_bottom": 34.6,
