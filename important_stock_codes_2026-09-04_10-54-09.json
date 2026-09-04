@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "3167": {
+            "name": "大量",
+            "support_bottom": 753.0,
+            "support_top": 767.0
+        },
         "3264": {
             "name": "欣銓",
             "support_bottom": 225.5,
