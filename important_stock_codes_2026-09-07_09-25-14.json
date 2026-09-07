@@ -14,6 +14,11 @@
             "name": "大銀微系統",
             "support_bottom": 238.0,
             "support_top": 240.5
+        },
+        "6224": {
+            "name": "聚鼎",
+            "support_bottom": 83.0,
+            "support_top": 85.1
         }
     }
 }
