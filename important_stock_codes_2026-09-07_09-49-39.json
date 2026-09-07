@@ -19,6 +19,11 @@
             "name": "聚鼎",
             "support_bottom": 83.0,
             "support_top": 85.1
+        },
+        "6510": {
+            "name": "精測",
+            "support_bottom": 3510.0,
+            "support_top": 3555.0
         }
     }
 }
