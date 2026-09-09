@@ -1,9 +1,9 @@
 {
     "波段(壓力突破)": {
-        "2464": {
-            "name": "盟立",
-            "support_bottom": 180.5,
-            "support_top": 196.0
+        "1312": {
+            "name": "國喬",
+            "support_bottom": 14.2,
+            "support_top": 14.45
         },
         "2474": {
             "name": "可成",
@@ -35,10 +35,10 @@
             "support_bottom": 238.0,
             "support_top": 240.5
         },
-        "6223": {
-            "name": "旺矽",
-            "support_bottom": 5870.0,
-            "support_top": 5975.0
+        "6224": {
+            "name": "聚鼎",
+            "support_bottom": 83.0,
+            "support_top": 85.1
         }
     }
 }
