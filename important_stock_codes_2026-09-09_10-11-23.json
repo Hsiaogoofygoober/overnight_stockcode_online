@@ -10,6 +10,11 @@
             "support_bottom": 203.0,
             "support_top": 206.0
         },
+        "2617": {
+            "name": "台航",
+            "support_bottom": 32.0,
+            "support_top": 32.85
+        },
         "3044": {
             "name": "健鼎",
             "support_bottom": 485.0,
