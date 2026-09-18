@@ -39,6 +39,11 @@
             "name": "信昌電",
             "support_bottom": 290.0,
             "support_top": 304.5
+        },
+        "6706": {
+            "name": "惠特",
+            "support_bottom": 143.0,
+            "support_top": 148.5
         }
     }
 }
