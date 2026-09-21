@@ -10,10 +10,20 @@
             "support_bottom": 72.9,
             "support_top": 74.2
         },
+        "3490": {
+            "name": "單井",
+            "support_bottom": 44.3,
+            "support_top": 45.3
+        },
         "6245": {
             "name": "立端",
             "support_bottom": 85.5,
             "support_top": 86.1
+        },
+        "6526": {
+            "name": "達發",
+            "support_bottom": 691.0,
+            "support_top": 712.0
         },
         "8415": {
             "name": "大國鋼",
