@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1101": {
+            "name": "台泥",
+            "support_bottom": 24.15,
+            "support_top": 24.25
+        },
         "3346": {
             "name": "麗清",
             "support_bottom": 24.1,
@@ -14,11 +19,6 @@
             "name": "宏遠證",
             "support_bottom": 17.85,
             "support_top": 17.95
-        },
-        "6530": {
-            "name": "創威",
-            "support_bottom": 96.9,
-            "support_top": 101.5
         }
     }
 }
