@@ -19,6 +19,11 @@
             "name": "宏遠證",
             "support_bottom": 17.85,
             "support_top": 17.95
+        },
+        "6278": {
+            "name": "台表科",
+            "support_bottom": 210.0,
+            "support_top": 212.0
         }
     }
 }
