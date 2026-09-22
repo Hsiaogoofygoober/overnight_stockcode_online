@@ -29,6 +29,11 @@
             "name": "台表科",
             "support_bottom": 210.0,
             "support_top": 212.0
+        },
+        "6456": {
+            "name": "GIS-KY",
+            "support_bottom": 74.5,
+            "support_top": 77.4
         }
     }
 }
