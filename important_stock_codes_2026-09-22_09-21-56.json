@@ -15,20 +15,10 @@
             "support_bottom": 24.1,
             "support_top": 25.05
         },
-        "4979": {
-            "name": "華星光",
-            "support_bottom": 615.0,
-            "support_top": 620.0
-        },
         "6015": {
             "name": "宏遠證",
             "support_bottom": 17.85,
             "support_top": 17.95
-        },
-        "6456": {
-            "name": "GIS-KY",
-            "support_bottom": 74.5,
-            "support_top": 77.4
         }
     }
 }
