@@ -4,6 +4,11 @@
             "name": "嘉晶",
             "support_bottom": 132.5,
             "support_top": 133.5
+        },
+        "6173": {
+            "name": "信昌電",
+            "support_bottom": 290.0,
+            "support_top": 304.5
         }
     }
 }
