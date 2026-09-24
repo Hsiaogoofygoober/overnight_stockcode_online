@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "3576": {
+            "name": "聯合再生",
+            "support_bottom": 18.1,
+            "support_top": 18.15
+        },
         "6173": {
             "name": "信昌電",
             "support_bottom": 290.0,
