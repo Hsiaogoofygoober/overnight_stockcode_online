@@ -5,6 +5,11 @@
             "support_bottom": 10.1,
             "support_top": 10.15
         },
+        "3490": {
+            "name": "單井",
+            "support_bottom": 44.3,
+            "support_top": 45.3
+        },
         "3576": {
             "name": "聯合再生",
             "support_bottom": 18.1,
