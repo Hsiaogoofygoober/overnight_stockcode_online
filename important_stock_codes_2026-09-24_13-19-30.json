@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1909": {
+            "name": "榮成",
+            "support_bottom": 10.1,
+            "support_top": 10.15
+        },
         "3576": {
             "name": "聯合再生",
             "support_bottom": 18.1,
