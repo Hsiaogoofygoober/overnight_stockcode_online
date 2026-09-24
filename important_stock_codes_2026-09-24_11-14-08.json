@@ -5,6 +5,11 @@
             "support_bottom": 10.1,
             "support_top": 10.15
         },
+        "3339": {
+            "name": "泰谷",
+            "support_bottom": 47.3,
+            "support_top": 48.4
+        },
         "3490": {
             "name": "單井",
             "support_bottom": 44.3,
@@ -24,11 +29,6 @@
             "name": "信昌電",
             "support_bottom": 290.0,
             "support_top": 304.5
-        },
-        "6278": {
-            "name": "台表科",
-            "support_bottom": 210.0,
-            "support_top": 212.0
         }
     }
 }
