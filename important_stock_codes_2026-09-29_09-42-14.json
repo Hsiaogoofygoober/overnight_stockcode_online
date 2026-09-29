@@ -14,6 +14,11 @@
             "name": "單井",
             "support_bottom": 44.3,
             "support_top": 45.3
+        },
+        "3591": {
+            "name": "艾笛森",
+            "support_bottom": 24.95,
+            "support_top": 25.2
         }
     }
 }
