@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1909": {
+            "name": "榮成",
+            "support_bottom": 10.1,
+            "support_top": 10.15
+        },
         "2464": {
             "name": "盟立",
             "support_bottom": 180.5,
