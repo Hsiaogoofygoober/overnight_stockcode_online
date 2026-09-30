@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1314": {
+            "name": "中石化",
+            "support_bottom": 8.91,
+            "support_top": 9.01
+        },
         "1440": {
             "name": "南紡",
             "support_bottom": 13.3,
