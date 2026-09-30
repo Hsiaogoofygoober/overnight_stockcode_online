@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1314": {
+            "name": "中石化",
+            "support_bottom": 8.91,
+            "support_top": 9.01
+        },
         "1440": {
             "name": "南紡",
             "support_bottom": 13.3,
@@ -14,11 +19,6 @@
             "name": "麗正",
             "support_bottom": 45.05,
             "support_top": 45.4
-        },
-        "2474": {
-            "name": "可成",
-            "support_bottom": 203.0,
-            "support_top": 206.0
         },
         "2838": {
             "name": "聯邦銀",
