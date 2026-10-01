@@ -1,14 +1,9 @@
 {
     "波段(壓力突破)": {
-        "1314": {
-            "name": "中石化",
-            "support_bottom": 8.91,
-            "support_top": 9.01
-        },
-        "2363": {
-            "name": "矽統",
-            "support_bottom": 58.7,
-            "support_top": 59.7
+        "2413": {
+            "name": "環科",
+            "support_bottom": 51.7,
+            "support_top": 52.7
         },
         "2486": {
             "name": "一詮",
@@ -24,6 +19,11 @@
             "name": "光鋐",
             "support_bottom": 44.8,
             "support_top": 46.65
+        },
+        "6834": {
+            "name": "天二科技",
+            "support_bottom": 107.0,
+            "support_top": 110.5
         }
     }
 }
