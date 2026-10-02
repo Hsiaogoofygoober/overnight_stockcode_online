@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1808": {
+            "name": "潤隆",
+            "support_bottom": 31.7,
+            "support_top": 31.75
+        },
         "1815": {
             "name": "富喬",
             "support_bottom": 117.5,
