@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1815": {
+            "name": "富喬",
+            "support_bottom": 117.5,
+            "support_top": 118.5
+        },
         "3042": {
             "name": "晶技",
             "support_bottom": 224.0,
@@ -19,6 +24,11 @@
             "name": "達運",
             "support_bottom": 14.9,
             "support_top": 15.0
+        },
+        "6173": {
+            "name": "信昌電",
+            "support_bottom": 290.0,
+            "support_top": 304.5
         },
         "6691": {
             "name": "洋基工程",
