@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "3042": {
+            "name": "晶技",
+            "support_bottom": 224.0,
+            "support_top": 224.5
+        },
         "3105": {
             "name": "穩懋",
             "support_bottom": 542.0,
@@ -9,6 +14,11 @@
             "name": "環宇-KY",
             "support_bottom": 485.5,
             "support_top": 504.0
+        },
+        "6120": {
+            "name": "達運",
+            "support_bottom": 14.9,
+            "support_top": 15.0
         },
         "6691": {
             "name": "洋基工程",
