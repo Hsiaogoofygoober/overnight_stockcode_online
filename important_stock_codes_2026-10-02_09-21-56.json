@@ -15,6 +15,11 @@
             "support_bottom": 224.0,
             "support_top": 224.5
         },
+        "3081": {
+            "name": "聯亞",
+            "support_bottom": 2775.0,
+            "support_top": 2845.0
+        },
         "3105": {
             "name": "穩懋",
             "support_bottom": 542.0,
