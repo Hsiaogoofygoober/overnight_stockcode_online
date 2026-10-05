@@ -30,6 +30,11 @@
             "support_bottom": 29.6,
             "support_top": 30.9
         },
+        "3661": {
+            "name": "世芯-KY",
+            "support_bottom": 3870.0,
+            "support_top": 3955.0
+        },
         "6015": {
             "name": "宏遠證",
             "support_bottom": 17.85,
@@ -44,6 +49,11 @@
             "name": "今國光",
             "support_bottom": 83.4,
             "support_top": 86.0
+        },
+        "6278": {
+            "name": "台表科",
+            "support_bottom": 218.0,
+            "support_top": 220.0
         },
         "6290": {
             "name": "良維",
