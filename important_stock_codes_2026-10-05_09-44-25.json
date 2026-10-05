@@ -1,0 +1,19 @@
+{
+    "波段(壓力突破)": {
+        "6015": {
+            "name": "宏遠證",
+            "support_bottom": 17.85,
+            "support_top": 17.95
+        },
+        "6152": {
+            "name": "百一",
+            "support_bottom": 16.05,
+            "support_top": 16.25
+        },
+        "6209": {
+            "name": "今國光",
+            "support_bottom": 83.4,
+            "support_top": 86.0
+        }
+    }
+}
