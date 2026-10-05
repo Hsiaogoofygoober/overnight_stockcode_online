@@ -1,0 +1,19 @@
+{
+    "波段(壓力突破)": {
+        "1815": {
+            "name": "富喬",
+            "support_bottom": 117.5,
+            "support_top": 118.5
+        },
+        "3042": {
+            "name": "晶技",
+            "support_bottom": 224.0,
+            "support_top": 224.5
+        },
+        "3576": {
+            "name": "聯合再生",
+            "support_bottom": 18.55,
+            "support_top": 18.6
+        }
+    }
+}
