@@ -54,6 +54,11 @@
             "name": "亞泰金屬",
             "support_bottom": 517.0,
             "support_top": 523.0
+        },
+        "7795": {
+            "name": "長廣",
+            "support_bottom": 549.0,
+            "support_top": 551.0
         }
     }
 }
