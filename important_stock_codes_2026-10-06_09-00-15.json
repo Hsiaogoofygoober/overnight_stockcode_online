@@ -1,0 +1,19 @@
+{
+    "波段(壓力突破)": {
+        "2317": {
+            "name": "鴻海",
+            "support_bottom": 256.0,
+            "support_top": 257.5
+        },
+        "3580": {
+            "name": "友威科",
+            "support_bottom": 107.5,
+            "support_top": 109.0
+        },
+        "4916": {
+            "name": "事欣科",
+            "support_bottom": 105.0,
+            "support_top": 106.5
+        }
+    }
+}
