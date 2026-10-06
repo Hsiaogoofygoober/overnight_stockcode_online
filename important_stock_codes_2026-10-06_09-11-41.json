@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1711": {
+            "name": "永光",
+            "support_bottom": 44.85,
+            "support_top": 45.35
+        },
         "1909": {
             "name": "榮成",
             "support_bottom": 10.1,
@@ -19,6 +24,11 @@
             "name": "友威科",
             "support_bottom": 107.5,
             "support_top": 109.0
+        },
+        "3680": {
+            "name": "家登",
+            "support_bottom": 570.0,
+            "support_top": 572.0
         },
         "4916": {
             "name": "事欣科",
