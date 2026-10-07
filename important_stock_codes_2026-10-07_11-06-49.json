@@ -19,6 +19,11 @@
             "name": "前鼎",
             "support_bottom": 235.0,
             "support_top": 243.0
+        },
+        "5011": {
+            "name": "久陽",
+            "support_bottom": 21.6,
+            "support_top": 22.0
         }
     }
 }
