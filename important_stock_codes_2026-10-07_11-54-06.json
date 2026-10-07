@@ -34,6 +34,11 @@
             "name": "久陽",
             "support_bottom": 21.6,
             "support_top": 22.0
+        },
+        "6015": {
+            "name": "宏遠證",
+            "support_bottom": 17.85,
+            "support_top": 17.95
         }
     }
 }
