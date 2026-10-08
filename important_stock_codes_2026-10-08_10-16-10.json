@@ -10,6 +10,11 @@
             "support_bottom": 19.0,
             "support_top": 19.05
         },
+        "1444": {
+            "name": "力麗",
+            "support_bottom": 6.98,
+            "support_top": 7.03
+        },
         "1721": {
             "name": "國慶科技",
             "support_bottom": 28.0,
@@ -34,11 +39,6 @@
             "name": "松瑞藥",
             "support_bottom": 20.5,
             "support_top": 20.55
-        },
-        "4927": {
-            "name": "泰鼎-KY",
-            "support_bottom": 56.3,
-            "support_top": 56.4
         },
         "6015": {
             "name": "宏遠證",
