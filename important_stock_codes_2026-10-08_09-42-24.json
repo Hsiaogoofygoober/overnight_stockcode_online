@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1313": {
+            "name": "聯成",
+            "support_bottom": 12.45,
+            "support_top": 12.7
+        },
         "1434": {
             "name": "福懋",
             "support_bottom": 19.0,
