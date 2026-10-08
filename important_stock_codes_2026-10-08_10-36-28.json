@@ -15,10 +15,20 @@
             "support_bottom": 6.98,
             "support_top": 7.03
         },
+        "1721": {
+            "name": "國慶科技",
+            "support_bottom": 28.0,
+            "support_top": 28.3
+        },
         "1907": {
             "name": "永豐餘",
             "support_bottom": 28.3,
             "support_top": 28.35
+        },
+        "3026": {
+            "name": "禾伸堂",
+            "support_bottom": 831.0,
+            "support_top": 870.0
         },
         "3354": {
             "name": "律勝",
