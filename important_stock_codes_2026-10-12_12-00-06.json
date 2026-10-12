@@ -34,6 +34,11 @@
             "name": "金橋",
             "support_bottom": 26.9,
             "support_top": 27.1
+        },
+        "6706": {
+            "name": "惠特",
+            "support_bottom": 149.0,
+            "support_top": 153.0
         }
     }
 }
