@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1617": {
+            "name": "榮星",
+            "support_bottom": 23.7,
+            "support_top": 24.5
+        },
         "2605": {
             "name": "新興",
             "support_bottom": 36.2,
