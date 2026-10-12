@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2316": {
+            "name": "楠梓電",
+            "support_bottom": 166.5,
+            "support_top": 174.0
+        },
         "2605": {
             "name": "新興",
             "support_bottom": 36.2,
@@ -9,6 +14,11 @@
             "name": "遠百",
             "support_bottom": 22.1,
             "support_top": 22.25
+        },
+        "3231": {
+            "name": "緯創",
+            "support_bottom": 186.5,
+            "support_top": 190.0
         },
         "3416": {
             "name": "融程電",
