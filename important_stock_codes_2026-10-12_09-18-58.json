@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "2903": {
+            "name": "遠百",
+            "support_bottom": 22.1,
+            "support_top": 22.25
+        },
         "3231": {
             "name": "緯創",
             "support_bottom": 186.5,
