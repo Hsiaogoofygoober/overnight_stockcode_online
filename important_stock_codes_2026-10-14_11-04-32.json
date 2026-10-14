@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1308": {
+            "name": "亞聚",
+            "support_bottom": 15.0,
+            "support_top": 15.15
+        },
         "1409": {
             "name": "新纖",
             "support_bottom": 25.7,
