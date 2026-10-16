@@ -25,6 +25,11 @@
             "support_bottom": 56.3,
             "support_top": 56.4
         },
+        "4976": {
+            "name": "佳凌",
+            "support_bottom": 39.4,
+            "support_top": 40.0
+        },
         "6015": {
             "name": "宏遠證",
             "support_bottom": 17.85,
@@ -49,6 +54,16 @@
             "name": "亞泰金屬",
             "support_bottom": 517.0,
             "support_top": 523.0
+        },
+        "9933": {
+            "name": "中鼎",
+            "support_bottom": 41.55,
+            "support_top": 42.6
+        },
+        "9949": {
+            "name": "琉園",
+            "support_bottom": 24.0,
+            "support_top": 24.4
         }
     }
 }
