@@ -1,0 +1,19 @@
+{
+    "波段(壓力突破)": {
+        "3035": {
+            "name": "智原",
+            "support_bottom": 195.0,
+            "support_top": 198.5
+        },
+        "4927": {
+            "name": "泰鼎-KY",
+            "support_bottom": 56.3,
+            "support_top": 56.4
+        },
+        "6517": {
+            "name": "保勝光學",
+            "support_bottom": 70.4,
+            "support_top": 70.6
+        }
+    }
+}
