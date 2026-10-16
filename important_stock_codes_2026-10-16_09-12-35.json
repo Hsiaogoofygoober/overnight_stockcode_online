@@ -30,10 +30,20 @@
             "support_bottom": 73.0,
             "support_top": 75.3
         },
+        "6415": {
+            "name": "矽力*-KY",
+            "support_bottom": 462.0,
+            "support_top": 468.0
+        },
         "6517": {
             "name": "保勝光學",
             "support_bottom": 70.4,
             "support_top": 70.6
+        },
+        "6727": {
+            "name": "亞泰金屬",
+            "support_bottom": 517.0,
+            "support_top": 523.0
         }
     }
 }
