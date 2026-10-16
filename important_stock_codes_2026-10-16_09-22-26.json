@@ -1,5 +1,10 @@
 {
     "波段(壓力突破)": {
+        "1313": {
+            "name": "聯成",
+            "support_bottom": 12.95,
+            "support_top": 13.05
+        },
         "1444": {
             "name": "力麗",
             "support_bottom": 6.98,
