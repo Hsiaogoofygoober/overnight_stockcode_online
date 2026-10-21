@@ -1,28 +1,12 @@
-const REPO_OWNER = "Hsiaogoofygoober";
-const REPO_NAME = "overnight_stockcode_online";
-const BRANCH = "master";
-const CONTENTS_API = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents?ref=${BRANCH}`;
+const BAND_DATA_URL = "data/important_stock_codes.json";
+const BBW_DATA_URL = "data/short_bbw.json";
 
-let repoFilesPromise = null;
-
-// 只打一次 GitHub contents API，兩個清單共用結果，避免重複請求撞到 rate limit
-function getRepoFiles() {
-  if (!repoFilesPromise) {
-    repoFilesPromise = fetch(CONTENTS_API).then(resp => {
-      if (!resp.ok) throw new Error(`GitHub API 失敗 (${resp.status})`);
-      return resp.json();
-    });
-  }
-  return repoFilesPromise;
-}
-
-async function getLatestFileUrl(prefix) {
-  const files = await getRepoFiles();
-  if (!Array.isArray(files)) return null;
-  const matched = files
-    .filter(f => f.name.startsWith(prefix) && f.name.endsWith(".json"))
-    .sort((a, b) => b.name.localeCompare(a.name)); // 檔名含時間戳，字串排序即可取得最新
-  return matched.length ? matched[0].download_url : null;
+// 資料檔由本機排程直接覆寫成固定檔名；檔案還不存在(404)時回傳 null，其他錯誤才丟例外
+async function fetchDataFile(url) {
+  const resp = await fetch(url, { cache: "no-store" });
+  if (resp.status === 404) return null;
+  if (!resp.ok) throw new Error(`下載失敗 (${resp.status})`);
+  return resp.json();
 }
 
 function makeStockItem(code, name, badgeText) {
@@ -56,17 +40,13 @@ async function fetchAndRenderBand() {
   const bandCountElement = document.getElementById("band-count");
 
   try {
-    const jsonUrl = await getLatestFileUrl("important_stock_codes_");
-    if (!jsonUrl) {
+    const data = await fetchDataFile(BAND_DATA_URL);
+    if (!data) {
       setState(bandUlElement, "尚未找到資料檔案");
       setCount(bandCountElement, 0);
       return;
     }
 
-    const response = await fetch(jsonUrl);
-    if (!response.ok) throw new Error(`下載失敗 (${response.status})`);
-
-    const data = await response.json();
     const bandStockList = data["波段(壓力突破)"] || {};
 
     const entries = Object.entries(bandStockList);
@@ -98,16 +78,12 @@ async function fetchAndRenderShortBBW() {
   const bbwCountElement = document.getElementById("bbw-count");
 
   try {
-    const url = await getLatestFileUrl("short_bbw_");
-    if (!url) {
+    const data = await fetchDataFile(BBW_DATA_URL);
+    if (!data) {
       setState(bbwList, "尚未找到資料檔案");
       setCount(bbwCountElement, 0);
       return;
     }
-
-    const resp = await fetch(url);
-    if (!resp.ok) throw new Error(`下載失敗 (${resp.status})`);
-    const data = await resp.json();
 
     const bbwObj = data["縮口"] || {};
     const entries = Object.entries(bbwObj);

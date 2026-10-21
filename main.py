@@ -7,15 +7,14 @@ import random
 import pandas as pd
 
 from db import Database
-from git_publisher import GitPublisher
 from get_stock_code import StockCodeRepository
 from stock_instant_price_info import InstantPriceFetcher
 
 
 class IntradayBandMonitor:
-    """盤中輪詢即時報價，偵測波段突破(band==1)的股票並推送到 GitHub。"""
+    """盤中輪詢即時報價，偵測波段突破(band==1)的股票並寫入網站資料夾（由 serve.py 對外提供）。"""
 
-    REPO_DIR = "D:/db_backups/overnight_stockcode_online"
+    DATA_DIR = "D:/db_backups/overnight_stockcode_online/public/data"
     STOP_HOUR = 13
     STOP_MINUTE = 25
     POLL_INTERVAL_SECONDS = 30
@@ -42,29 +41,6 @@ class IntradayBandMonitor:
             # 取得查詢結果：檢查今天是否在假日列表中
             return cursor.fetchone() is None
 
-    def remove_old_json_files(self, json_file):
-        print(json_file)
-        try:
-            # 取得倉庫目錄中所有 JSON 文件
-            files_in_repo = os.listdir(self.REPO_DIR)
-
-            # 只挑出前綴為 important_stock_codes 且不是當前 json_file 的檔案
-            json_files = [
-                f for f in files_in_repo
-                if f.startswith("important_stock_codes")
-                and f.endswith(".json")
-                and os.path.join(self.REPO_DIR, f) != json_file
-            ]
-
-            # 刪除過時的 JSON 文件
-            for file in json_files:
-                file_path = os.path.join(self.REPO_DIR, file)
-                os.remove(file_path)
-                print(f"{file} 已刪除")
-
-        except Exception as e:
-            print(f"刪除過時文件時出現錯誤: {e}")
-
     def poll_once(self, stock_codes, length):
         url = ''
         for index, stock_data in enumerate(stock_codes):
@@ -77,7 +53,7 @@ class IntradayBandMonitor:
             else:
                 url += f"{stock_data['type']}_{stock_data['stock_code']}.tw|"
 
-    def save_and_publish(self, filtered_df):
+    def save_result(self, filtered_df):
         # 建立精細的 JSON 嵌套字典結構，把支撐區間塞進去
         band_details = {}
         for code, row in filtered_df.iterrows():
@@ -87,17 +63,16 @@ class IntradayBandMonitor:
                 "support_top": float(row['support_top']) if pd.notnull(row['support_top']) else None
             }
 
-        data_to_save = {'波段(壓力突破)': band_details}
-
-        # 生成新的 JSON 文件名並推送
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        json_filename = os.path.join(self.REPO_DIR, f"important_stock_codes_{timestamp}.json")
+        data_to_save = {'更新時間': timestamp, '波段(壓力突破)': band_details}
 
-        with open(json_filename, 'w', encoding='utf-8') as json_file:
+        # 先寫暫存檔再覆蓋，避免網頁剛好讀到寫到一半的檔案
+        os.makedirs(self.DATA_DIR, exist_ok=True)
+        json_filename = os.path.join(self.DATA_DIR, "important_stock_codes.json")
+        tmp_filename = json_filename + ".tmp"
+        with open(tmp_filename, 'w', encoding='utf-8') as json_file:
             json.dump(data_to_save, json_file, ensure_ascii=False, indent=4)
-
-        self.remove_old_json_files(json_filename)
-        GitPublisher(self.REPO_DIR).push(f"Update {json_filename}")
+        os.replace(tmp_filename, json_filename)
         print(timestamp)
 
     def run(self):
@@ -113,7 +88,7 @@ class IntradayBandMonitor:
         length = len(stock_codes)
 
         # 開盤前先清空舊的 important_stock_codes_*.json，避免網頁短暫顯示前一天的舊名單
-        self.save_and_publish(self.stock_df[self.stock_df['band'] == 1])
+        self.save_result(self.stock_df[self.stock_df['band'] == 1])
 
         flag = True
         while flag:
@@ -135,7 +110,7 @@ class IntradayBandMonitor:
             # 3. 如果名單與上一輪不同，才寫檔並推送
             if current_band_dict != self.previous_band_dict:
                 self.previous_band_dict = current_band_dict.copy()
-                self.save_and_publish(filtered_df)
+                self.save_result(filtered_df)
 
             time.sleep(self.POLL_INTERVAL_SECONDS)  # 每 30 秒檢查一次
 
